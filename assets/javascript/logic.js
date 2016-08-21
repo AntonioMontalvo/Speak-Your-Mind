@@ -1,25 +1,32 @@
- $(".text_process_button").click(function(){
-    $('#searchInput').val(final_span.textContent);
-    var textString = $("#searchInput").val().trim();
+//////////////SENTIMENT API FROM twinword///////////////
+///////////////////////////////////////////////////////
+ $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
+    $('#searchInput').val(final_span.textContent); //get text from textArea
+    var textString = $("#searchInput").val().trim(); //store text 
     console.log(textString);
 
-        $.ajax({
+        $.ajax({//the ajax method performs an asynchronos HTTP request
             url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=',
-
+            //a request for information from a database using the URL
             type: 'GET', // The HTTP Method
             data: {text: textString},
             datatype: 'json',
-            success: function (result) {
+            success: function (result) {//when the results are back
               
         console.log(result);
         console.log(result.type);
         console.log(result.score);
+        //we access Sentiment Analysis Results and write the type and score
         $("#sentimentScorePanel").html(result.type+"= "+result.score);
+
         $("#sentimentScore").html(result.score);
+        //The Math.abs() function returns the absolute value of a number
         var barWidth= Math.abs(result.score*100)+"%";
         console.log(parseInt(barWidth));
-        $('#bar').width(barWidth);
+        //
+        $('#bar').width(barWidth);//apply barWidth to our progress bar
         console.log((Math.abs(result.score*100)));
+        //assign colors to progress bar according to results type
         if(result.type==="negative"){
           $('#bar').addClass("progress-bar-danger");
         } 
@@ -38,7 +45,7 @@
         console.log(result.keywords["1"].score);
         console.log(result.keywords["2"].word);
         console.log(result.keywords["2"].score);
-
+        //from the results object we access the keywords array and display
         $("#word1").html(result.keywords["0"].word+"= "+result.keywords["0"].score);
         $("#word2").html(result.keywords["1"].word+"= "+result.keywords["1"].score);
         $("#word3").html(result.keywords["2"].word+"= "+result.keywords["2"].score);  
@@ -57,7 +64,8 @@
 
 
 
-
+//////////////Google Cloud Speech API ///////////////
+/////////////////////////////////////////////////////
 
 var langs =
 [['Afrikaans',       ['af-ZA']],
@@ -122,12 +130,15 @@ var langs =
                      ['yue-Hant-HK', '粵語 (香港)']],
  ['日本語',           ['ja-JP']],
  ['Lingua latīna',   ['la']]];
+
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
+
 select_language.selectedIndex = 6;
 updateCountry();
 select_dialect.selectedIndex = 6;
+
 showInfo('info_start');
 function updateCountry() {
   for (var i = select_dialect.options.length - 1; i >= 0; i--) {
@@ -144,6 +155,7 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
 } else {
@@ -156,6 +168,7 @@ if (!('webkitSpeechRecognition' in window)) {
     showInfo('info_speak_now');
     start_img.src = 'mic-animate.gif';
   };
+
   recognition.onerror = function(event) {
     if (event.error == 'no-speech') {
       start_img.src = 'mic.gif';
@@ -176,6 +189,7 @@ if (!('webkitSpeechRecognition' in window)) {
       ignore_onend = true;
     }
   };
+
   recognition.onend = function() {
     recognizing = false;
     if (ignore_onend) {
@@ -198,6 +212,7 @@ if (!('webkitSpeechRecognition' in window)) {
       createEmail();
     }
   };
+
   recognition.onresult = function(event) {
     var interim_transcript = '';
     for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -215,19 +230,23 @@ if (!('webkitSpeechRecognition' in window)) {
     }
   };
 }
+
 function upgrade() {
   start_button.style.visibility = 'hidden';
   showInfo('info_upgrade');
 }
+
 var two_line = /\n\n/g;
 var one_line = /\n/g;
 function linebreak(s) {
   return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
 }
+
 var first_char = /\S/;
 function capitalize(s) {
   return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
+
 function createEmail() {
   var n = final_transcript.indexOf('\n');
   if (n < 0 || n >= 80) {
@@ -258,6 +277,7 @@ function createEmail() {
 //   email_info.style.display = 'inline-block';
 //   showInfo('');
 // }
+
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
@@ -274,6 +294,7 @@ function startButton(event) {
   // showButtons('none');
   start_timestamp = event.timeStamp;
 }
+
 function showInfo(s) {
   if (s) {
     for (var child = info.firstChild; child; child = child.nextSibling) {
