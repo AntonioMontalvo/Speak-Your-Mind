@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Speak Your Mind</title>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <!-- Jumbotron  -->
+  <div class="jumbotron">
+    <h1>Speak Your Mind</h1>
+    <h4>Sentiment Analysis using Voice Recognition and NLP APIs</h4>
+  </div>
+
+
+<div id="info">
+  <p id="info_start">Click on the microphone icon and begin speaking.</p>
+  <p id="info_speak_now">Speak now.</p>
+  <p id="info_no_speech">No speech was detected. You may need to adjust your
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+      microphone settings</a>.</p>
+  <p id="info_no_microphone" style="display:none">
+    No microphone was found. Ensure that a microphone is installed and that
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+    microphone settings</a> are configured correctly.</p>
+  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+  <p id="info_denied">Permission to use microphone was denied.</p>
+  <p id="info_blocked">Permission to use microphone is blocked. To change,
+    go to chrome://settings/contentExceptions#media-stream</p>
+  <p id="info_upgrade">Web Speech API is not supported by this browser.
+     Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+     version 25 or later.</p>
+</div>
+<div class="right">
+  <button id="start_button" onclick="startButton(event)">
+    <img id="start_img" src="mic.gif" alt="Start"></button>
+</div>
+<div id="results">
+  <span id="final_span" class="final"></span>
+  <span id="interim_span" class="interim"></span>
+  <p>
+</div>
+<div class="center">
+  <div class="sidebyside" style="text-align:right">
+    <button id="copy_button" class="button" onclick="copyButton()">
+      Copy and Paste</button>
+    <div id="copy_info" class="info">
+      Press Control-C to copy text.<br>(Command-C on Mac.)
+    </div>
+  </div>
+  <div class="sidebyside">
+    <button id="email_button" class="button" onclick="emailButton()">
+      Create Email</button>
+    <div id="email_info" class="info">
+      Text sent to default email application.<br>
+      (See chrome://settings/handlers to change.)
+    </div>
+  </div>
+  <p>
+  <div id="div_language">
+    <select id="select_language" onchange="updateCountry()"></select>
+    &nbsp;&nbsp;
+    <select id="select_dialect"></select>
+  </div>
+</div>
+
+
+
+
+  <div class="row">
+
+
+
+    </div>
+    
+    <!-- Search Parameters Panel  -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Search Parameter</h3>
+          </div>
+
+      </div>        
+    </div>
+
+
+    <div class="col-lg-12 text-center">
+      <textarea id="searchInput" type="text"></textarea><button type="button" class="text_process_button btn btn-default btn-lg">Get Sentiment Scores</button><br>
+    </div>
+
+
+
+  <div class="row">
+    <!-- Results Panel -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sentiment Analysis Results</h3>
+          </div>
+          <div class="panel-body" id="sentimentScorePanel">
+
+
+          </div>
+        </div>  
+    </div>
+  </div>
+
+
+
+<div class="progress">
+  <div id="bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    <span class="sr-only">80% Complete (danger)</span>
+  </div>
+</div>
+
+    <div class="row">
+    <!-- Results Panel -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Top Words Analyzed</h3>
+          </div>
+          <div class="panel-body" id="word1">
+
+
+          </div>
+          <div class="panel-body" id="word2">
+
+
+          </div>
+          <div class="panel-body" id="word3">
+
+
+          </div>
+
+
+          <div class="panel-body" id="word4">
+
+
+          </div>
+
+          <div class="panel-body" id="word5">
+
+
+          </div>                    
+        </div>  
+    </div>
+  </div>
+
+
+</div>
+
+<!-- jQuery JS -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- Logic.js -->
+<script src="assets/javascript/logic.js"></script>
+
+
+  
+</body>
+
+

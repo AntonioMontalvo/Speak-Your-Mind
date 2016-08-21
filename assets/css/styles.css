@@ -1,4 +1,29 @@
-* {
+.text_process_button{
+
+	background-color: #0808b7;
+	color:white;
+	display:block;
+}
+
+#searchInput{
+
+	width: 100%;
+	height:150px;
+}
+
+.panel-default>.panel-heading{
+	background-color: black;
+	color: white;
+
+}
+
+.jumbotron{
+	background-color: black;
+	color: white;
+
+}
+
+  * {
     font-family: Verdana, Arial, sans-serif;
   }
   a:link {
