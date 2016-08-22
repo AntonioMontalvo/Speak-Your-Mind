@@ -1,8 +1,34 @@
+//create variables to plug into graph
+ var score0;
+ var score1;
+ var score2;
+ var score3;
+ var score4;
+ var score5;
+ var score7;
+ var score8;
+ var score9;
+ var score10;
+
+
+ var word0;
+ var word1;
+ var word2;
+ var word3;
+ var word4;
+ var word5;
+ var word6;
+ var word7;
+ var word8;
+ var word9;
+
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
+
     $('#searchInput').val(final_span.textContent); //get text from textArea
     var textString = $("#searchInput").val().trim(); //store text
+
     console.log(textString);
 
         $.ajax({//the ajax method performs an asynchronos HTTP request
@@ -37,6 +63,7 @@
 
             else {
               $('#bar').addClass("progress-bar-warning");
+
             };
 
 var fireset = [];
@@ -48,12 +75,123 @@ for(var i=0; i < result.keywords.length; i++) {
   $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
 }
 
-        //from the results object we access the keywords array and display
-  //      $("#word1").html(result.keywords["0"].word+"= "+result.keywords["0"].score);
-//        $("#word2").html(result.keywords["1"].word+"= "+result.keywords["1"].score);
-  //      $("#word3").html(result.keywords["2"].word+"= "+result.keywords["2"].score);
-    //    $("#word4").html(result.keywords["3"].word+"= "+result.keywords["3"].score);
-    //    $("#word5").html(result.keywords["4"].word+"= "+result.keywords["4"].score);
+
+
+            
+
+          //stores JSON results into variables for graph
+          word0 = result.keywords[0].word;
+          word1 = result.keywords[1].word;
+          word2 = result.keywords[2].word;
+          word3 = result.keywords[3].word;
+          word4 = result.keywords[4].word;
+          word5 = result.keywords[5].word;
+          word6 = result.keywords[6].word;
+          word7 = result.keywords[7].word;
+          word8 = result.keywords[8].word;
+          word9 = result.keywords[9].word;
+
+
+          score0 = result.keywords[0].score;
+          score1 = result.keywords[1].score;
+          score2 = result.keywords[2].score;
+          score3 = result.keywords[3].score;
+          score4 = result.keywords[4].score;
+          score5 = result.keywords[5].score;
+          score6 = result.keywords[6].score;
+          score7 = result.keywords[7].score;
+          score8 = result.keywords[8].score;
+          score9 = result.keywords[9].score;
+ 
+
+        //for loop to appending results to table
+        for (var i=0; i < 10; i++){
+          $("#word").append('<p>' + result.keywords[i].word + " = " + result.keywords[i].score + '</p>');
+        }
+
+        //this function determines whether the word will be green or red on graph
+        function getColor(number){
+          if (number > 0){
+            return 'rgba(75, 192, 192, 0.2)'; //green
+          }
+          else {
+            return 'rgba(255, 99, 132, 0.2)' //red
+          }
+        }
+
+        //start of chart info
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: {
+            //words here
+            labels: [word0, word1, word2, word3, word4, word5, word6, word7, word8, word9], 
+
+            datasets: [{
+              label: 'Positive',
+              //scores below
+              data: [score0, score1, score2, score3, score4, score5, score6, score7, score8, score9], //add JSON num results here  
+              backgroundColor: [
+                getColor(score0), //this is green, for positive
+                getColor(score1),
+                getColor(score2), //this is red, for negative
+                getColor(score3), 
+                getColor(score4),
+                getColor(score5),
+                getColor(score6),
+                getColor(score7),
+                getColor(score8),
+                getColor(score9)
+              ],
+              borderColor: [
+                'black',
+                'black',
+                'black',
+                'black',
+                'black',
+                'black',
+                'black',
+                'black',
+                'black',
+                'black'
+              ],
+              borderWidth: 2
+          },
+
+        {
+            //this is for the Negative part of the legend
+            label: 'Negative',
+            data: 0,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'black',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'WORD'
+                },
+                ticks: {
+                    beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SENTIMENT SCORE'
+                },
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});     
+
+
             },
             error: function (err) {
                 alert(err);
@@ -64,8 +202,6 @@ for(var i=0; i < result.keywords.length; i++) {
         });
 
     });
-
-
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
