@@ -43,7 +43,7 @@
             };
 
 
-            
+
 
 var fireset = [];
 
@@ -161,7 +161,8 @@ for(var i=0; i < result.keywords.length; i++) {
                                   }
                                 ]
                       },//end of index 0
-                      options: {//index 1
+                      //options: 
+                      {//index 1
                                 scales: {
                                     yAxes: [
                                               {
