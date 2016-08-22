@@ -1,4 +1,3 @@
-/*console.log('hello');
  // Initialize Firebase
  var config = {
    apiKey: "AIzaSyC6omfRwWGIasRJnWtTtKkHIi2tGpSmjSw",
@@ -7,15 +6,13 @@
    storageBucket: "sentiment-analysis-60e30.appspot.com",
  };
 firebase.initializeApp(config);
+//reference database
 var dataRef = firebase.database();
+var allScores = [];//stored values from words
 
-dataRef.ref().on('event', function(snapshot) {
-  dataRef.ref('Person').set({
-    name: guy,
-    wins: 0,
-    losses: 0,
-    choice: null
-  })
+dataRef.ref('/General_Scores').push({
+    allScores: allScores,
+    
+  });
 
-})
-*/
+

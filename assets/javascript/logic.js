@@ -1,9 +1,8 @@
-
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
-    $('#searchInput').val(final_span.textContent); //get text from textArea
+    // $('#searchInput').val(final_span.textContent); //get text from textArea
     var textString = $("#searchInput").val().trim(); //store text
 
     console.log(textString);
@@ -51,6 +50,7 @@ for(var i=0; i < result.keywords.length; i++) {
   var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1)
   fireset.push(capital)
   $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
+  allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
 }
 
 
