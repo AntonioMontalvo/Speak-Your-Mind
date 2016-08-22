@@ -142,16 +142,16 @@ for(var i = 0; i < result.keywords.length; i++) {
 */
 
             //words here
-            labels: [], 
+            labels: [];
             for(var i = 0; i < result.keywords.length; i++) {
-              labels.push(word+i)
+              labels.push(word+i);
             }
             datasets: [{
               label: 'Positive',
               //scores below
               data: [], //add JSON num results here  
               for(var i = 0; i < result.keywords.length; i++) {
-              data.push(score+i)
+              data.push(score+i);
             }
               backgroundColor: [
               for(var i = 0; i < result.keywords.length; i++) {
