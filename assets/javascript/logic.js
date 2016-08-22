@@ -134,14 +134,10 @@ for(var i=0; i < result.keywords.length; i++) {
                 
               }
                 backgroundColor: [
-                for(var i = 0; i < result.keywords.length; i++) {
-                  getColor(score+i);
-                }
+
                 ],
                 borderColor: [
-                  for(var i = 0; i < result.keywords.length; i++) {
-                    "black";
-                }
+
                 ],
                 borderWidth: 2
           },
@@ -155,13 +151,6 @@ for(var i=0; i < result.keywords.length; i++) {
             borderWidth: 2
         }]
     },
-
-    for(var i = 0; i < result.keywords.length; i++) {
-              labels.push(word+i);
-            }
-    for(var i = 0; i < result.keywords.length; i++) {
-                data.push(score+i);
-
 
     options: {
         scales: {
@@ -185,6 +174,19 @@ for(var i=0; i < result.keywords.length; i++) {
             }]
         }
     }
+    for(var i = 0; i < result.keywords.length; i++) {
+              labels.push(word+i);
+            }
+    for(var i = 0; i < result.keywords.length; i++) {
+                data.push(score+i);
+            }
+    for(var i = 0; i < result.keywords.length; i++) {
+                getColor(score+i);
+            }
+
+    for(var i = 0; i < result.keywords.length; i++) {
+                "black";
+            }
 });     
 
 
