@@ -249,16 +249,16 @@ for(var i=0; i < result.keywords.length; i++) {
     //             }//END OF options
     // });//CLOSES new Chart
 
-            },
-            error: function (err) {
-                alert(err);
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
-            }
-        });
+    //         },
+    //         error: function (err) {
+    //             alert(err);
+    //         },
+    //         beforeSend: function (xhr) {
+    //             xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
+    //         }
+    //     });
 
-    });
+    // });
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
