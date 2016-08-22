@@ -3,7 +3,7 @@
 var allScores = [];//stored values from words
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
-    // $('#searchInput').val(final_span.textContent); //get text from textArea
+    $('#searchInput').val(final_span.textContent); //get text from textArea
     var textString = $("#searchInput").val().trim(); //store text
 
     console.log(textString);
