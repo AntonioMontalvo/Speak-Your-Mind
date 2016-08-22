@@ -193,7 +193,7 @@ for(var i=0; i < result.keywords.length; i++) {
                 }//END OF options
     });//CLOSES new Chart
 
-});     
+//});     
 
 
 
