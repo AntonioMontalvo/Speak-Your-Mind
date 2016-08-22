@@ -132,7 +132,7 @@ for(var i=0; i < result.keywords.length; i++) {
                 //scores below
                 data: [], //add JSON num results here  
                 
-              
+
                 backgroundColor: [
 
                 ],
@@ -174,19 +174,7 @@ for(var i=0; i < result.keywords.length; i++) {
             }]
         }
     }
-    for(var i = 0; i < result.keywords.length; i++) {
-              labels.push(word+i);
-            }
-    for(var i = 0; i < result.keywords.length; i++) {
-                data.push(score+i);
-            }
-    for(var i = 0; i < result.keywords.length; i++) {
-                getColor(score+i);
-            }
 
-    for(var i = 0; i < result.keywords.length; i++) {
-                "black";
-            }
 });     
 
 
