@@ -124,46 +124,29 @@ for(var i=0; i < result.keywords.length; i++) {
         var myChart = new Chart(ctx, {
           type: 'horizontalBar',
           data: {
-
-/*
-for(var i = 0; i < result.keywords.length; i++) {
-  
-  var labels = [];
-  var datasets = []
-  var backgroundColor = [];
-  var borderColor = [];
-  var word+i = result.keywords[i].word;
-  var score+i = result.keywords[i].score;
-  labels.push(word+i);
-  backgroundColor.push(getColor(score+i));
-  borderColor.push("black");
-
-}
-*/
-
             //words here
             labels: [];
             for(var i = 0; i < result.keywords.length; i++) {
               labels.push(word+i);
             }
             datasets: [{
-              label: 'Positive',
-              //scores below
-              data: [], //add JSON num results here  
-              for(var i = 0; i < result.keywords.length; i++) {
-              data.push(score+i);
-            }
-              backgroundColor: [
-              for(var i = 0; i < result.keywords.length; i++) {
-                getColor(score+i);
-              }
-              ],
-              borderColor: [
+                label: 'Positive',
+                //scores below
+                data: []; //add JSON num results here  
                 for(var i = 0; i < result.keywords.length; i++) {
-                  "black";
+                data.push(score+i);
               }
-              ],
-              borderWidth: 2
+                backgroundColor: [
+                for(var i = 0; i < result.keywords.length; i++) {
+                  getColor(score+i);
+                }
+                ],
+                borderColor: [
+                  for(var i = 0; i < result.keywords.length; i++) {
+                    "black";
+                }
+                ],
+                borderWidth: 2
           },
 
         {
