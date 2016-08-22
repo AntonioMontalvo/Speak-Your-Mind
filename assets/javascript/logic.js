@@ -132,7 +132,7 @@ for(var i=0; i < result.keywords.length; i++) {
                 //scores below
                 data: [], //add JSON num results here  
                 
-              }
+              
                 backgroundColor: [
 
                 ],
