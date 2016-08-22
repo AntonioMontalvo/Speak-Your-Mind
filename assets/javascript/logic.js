@@ -125,7 +125,7 @@ for(var i=0; i < result.keywords.length; i++) {
           type: 'horizontalBar',
           data: {
             //words here
-            labels: [];
+            labels: [],
             for(var i = 0; i < result.keywords.length; i++) {
               labels.push(word+i);
             }
