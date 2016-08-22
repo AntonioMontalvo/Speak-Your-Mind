@@ -126,15 +126,12 @@ for(var i=0; i < result.keywords.length; i++) {
           data: {
             //words here
             labels: [],
-            for(var i = 0; i < result.keywords.length; i++) {
-              labels.push(word+i);
-            }
+            
             datasets: [{
                 label: 'Positive',
                 //scores below
-                data: []; //add JSON num results here  
-                for(var i = 0; i < result.keywords.length; i++) {
-                data.push(score+i);
+                data: [], //add JSON num results here  
+                
               }
                 backgroundColor: [
                 for(var i = 0; i < result.keywords.length; i++) {
@@ -158,6 +155,14 @@ for(var i=0; i < result.keywords.length; i++) {
             borderWidth: 2
         }]
     },
+
+    for(var i = 0; i < result.keywords.length; i++) {
+              labels.push(word+i);
+            }
+    for(var i = 0; i < result.keywords.length; i++) {
+                data.push(score+i);
+
+
     options: {
         scales: {
             yAxes: [{
