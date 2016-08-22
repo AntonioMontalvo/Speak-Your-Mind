@@ -1,26 +1,4 @@
-//create variables to plug into graph
- var score0;
- var score1;
- var score2;
- var score3;
- var score4;
- var score5;
- var score7;
- var score8;
- var score9;
- var score10;
 
-
- var word0;
- var word1;
- var word2;
- var word3;
- var word4;
- var word5;
- var word6;
- var word7;
- var word8;
- var word9;
 
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
@@ -63,37 +41,21 @@
               $('#bar').addClass("progress-bar-warning");
             }
 
-          //stores JSON results into variables for graph
-          word0 = result.keywords[0].word;
-          word1 = result.keywords[1].word;
-          word2 = result.keywords[2].word;
-          word3 = result.keywords[3].word;
-          word4 = result.keywords[4].word;
-          word5 = result.keywords[5].word;
-          word6 = result.keywords[6].word;
-          word7 = result.keywords[7].word;
-          word8 = result.keywords[8].word;
-          word9 = result.keywords[9].word;
-
-
-          score0 = result.keywords[0].score;
-          score1 = result.keywords[1].score;
-          score2 = result.keywords[2].score;
-          score3 = result.keywords[3].score;
-          score4 = result.keywords[4].score;
-          score5 = result.keywords[5].score;
-          score6 = result.keywords[6].score;
-          score7 = result.keywords[7].score;
-          score8 = result.keywords[8].score;
-          score9 = result.keywords[9].score;
+          //these arrays will contain the data for the bar graph
+          var arrayWords = []; //contains the words
+          var arrayScore = []; //contains the score
+          var arrayColor = []; //array for if red or green
+          var arrayBlack = []; //however many black color sit needs
  
-
-        //for loop to appending results to table
-        for (var i=0; i < 10; i++){
-          $("#word").append('<p>' + result.keywords[i].word + " = " + result.keywords[i].score + '</p>');
+        //for loop to add data into the arrays
+        for (var i=0; i < result.keywords.length; i++){
+          arrayWords.push(result.keywords[i].word);
+          arrayScore.push(result.keywords[i].score);
+          arrayColor.push(getColor(result.keywords[i].score));
+          arrayBlack.push('black');
         }
 
-        //this function determines whether the word will be green or red on graph
+        //this function determines whether the bar for whatever word will be green or red on graph
         function getColor(number){
           if (number > 0){
             return 'rgba(75, 192, 192, 0.2)'; //green
@@ -109,51 +71,31 @@
           type: 'horizontalBar',
           data: {
             //words here
-            labels: [word0, word1, word2, word3, word4, word5, word6, word7, word8, word9], 
+            labels: arrayWords, 
 
             datasets: [{
-              label: 'Positive',
+              label: 'Positive Sentiment',
               //scores below
-              data: [score0, score1, score2, score3, score4, score5, score6, score7, score8, score9], //add JSON num results here  
-              backgroundColor: [
-                getColor(score0), //this is green, for positive
-                getColor(score1),
-                getColor(score2), //this is red, for negative
-                getColor(score3), 
-                getColor(score4),
-                getColor(score5),
-                getColor(score6),
-                getColor(score7),
-                getColor(score8),
-                getColor(score9)
-              ],
-              borderColor: [
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black'
-              ],
+              display: false,
+              data: arrayScore, //add JSON num results here  
+              backgroundColor: arrayColor,
+              borderColor: arrayBlack,
               borderWidth: 2
-          },
+              },
 
-        {
-            //this is for the Negative part of the legend
-            label: 'Negative',
-            data: 0,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'black',
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
+              {
+                //this is for the Negative part of the legend
+                label: 'Negative Sentiment',
+                data: 0,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'black',
+                borderWidth: 2
+              }]   
+          },
+    
+          options: {
+            scales: {
+              yAxes: [{
                 scaleLabel: {
                     display: true,
                     labelString: 'WORD'
@@ -161,8 +103,8 @@
                 ticks: {
                     beginAtZero:true
                 }
-            }],
-            xAxes: [{
+              }],
+              xAxes: [{
                 scaleLabel: {
                     display: true,
                     labelString: 'SENTIMENT SCORE'
@@ -170,11 +112,10 @@
                 ticks: {
                     beginAtZero:true
                 }
-            }]
-        }
-    }
-});     
-
+              }]
+            }
+          }
+        });     
             },
             error: function (err) {
                 alert(err);
