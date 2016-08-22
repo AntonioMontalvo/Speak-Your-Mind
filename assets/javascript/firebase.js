@@ -1,4 +1,4 @@
-console.log('hello');
+/*console.log('hello');
  // Initialize Firebase
  var config = {
    apiKey: "AIzaSyC6omfRwWGIasRJnWtTtKkHIi2tGpSmjSw",
@@ -10,6 +10,12 @@ firebase.initializeApp(config);
 var dataRef = firebase.database();
 
 dataRef.ref().on('event', function(snapshot) {
-
+  dataRef.ref('Person').set({
+    name: guy,
+    wins: 0,
+    losses: 0,
+    choice: null
+  })
 
 })
+*/

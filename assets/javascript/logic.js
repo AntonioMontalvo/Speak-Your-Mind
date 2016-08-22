@@ -1,7 +1,7 @@
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
-    //$('#searchInput').val(final_span.textContent); //get text from textArea
+    $('#searchInput').val(final_span.textContent); //get text from textArea
     var textString = $("#searchInput").val().trim(); //store text
     console.log(textString);
 
@@ -39,17 +39,15 @@
               $('#bar').addClass("progress-bar-warning");
             };
 
-for(var i=0; i < result.keywords.length; i++) {
+var fireset = [];
 
-  $("#word"+i).html(result.keywords[i].word+"= "+result.keywords[i].score)
-  
+for(var i=0; i < result.keywords.length; i++) {
+  var newWord = result.keywords[i].word
+  var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1)
+  fireset.push(capital)
+  $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
 }
-        console.log(result.keywords["0"].word);
-        console.log(result.keywords["0"].score);
-        console.log(result.keywords["1"].word);
-        console.log(result.keywords["1"].score);
-        console.log(result.keywords["2"].word);
-        console.log(result.keywords["2"].score);
+
         //from the results object we access the keywords array and display
   //      $("#word1").html(result.keywords["0"].word+"= "+result.keywords["0"].score);
 //        $("#word2").html(result.keywords["1"].word+"= "+result.keywords["1"].score);
