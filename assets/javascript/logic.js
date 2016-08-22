@@ -77,7 +77,7 @@ for(var i=0; i < result.keywords.length; i++) {
 
 
 
-            
+           /* 
 
           //stores JSON results into variables for graph
           word0 = result.keywords[0].word;
@@ -102,7 +102,7 @@ for(var i=0; i < result.keywords.length; i++) {
           score7 = result.keywords[7].score;
           score8 = result.keywords[8].score;
           score9 = result.keywords[9].score;
- 
+ */
 
         //for loop to appending results to table
         for (var i=0; i < 10; i++){
@@ -124,36 +124,44 @@ for(var i=0; i < result.keywords.length; i++) {
         var myChart = new Chart(ctx, {
           type: 'horizontalBar',
           data: {
-            //words here
-            labels: [word0, word1, word2, word3, word4, word5, word6, word7, word8, word9], 
 
+/*
+for(var i = 0; i < result.keywords.length; i++) {
+  
+  var labels = [];
+  var datasets = []
+  var backgroundColor = [];
+  var borderColor = [];
+  var word+i = result.keywords[i].word;
+  var score+i = result.keywords[i].score;
+  labels.push(word+i);
+  backgroundColor.push(getColor(score+i));
+  borderColor.push("black");
+
+}
+*/
+
+            //words here
+            labels: [], 
+            for(var i = 0; i < result.keywords.length; i++) {
+              labels.push(word+i)
+            }
             datasets: [{
               label: 'Positive',
               //scores below
-              data: [score0, score1, score2, score3, score4, score5, score6, score7, score8, score9], //add JSON num results here  
+              data: [], //add JSON num results here  
+              for(var i = 0; i < result.keywords.length; i++) {
+              data.push(score+i)
+            }
               backgroundColor: [
-                getColor(score0), //this is green, for positive
-                getColor(score1),
-                getColor(score2), //this is red, for negative
-                getColor(score3), 
-                getColor(score4),
-                getColor(score5),
-                getColor(score6),
-                getColor(score7),
-                getColor(score8),
-                getColor(score9)
+              for(var i = 0; i < result.keywords.length; i++) {
+                getColor(score+i);
+              }
               ],
               borderColor: [
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black',
-                'black'
+                for(var i = 0; i < result.keywords.length; i++) {
+                  "black";
+              }
               ],
               borderWidth: 2
           },
