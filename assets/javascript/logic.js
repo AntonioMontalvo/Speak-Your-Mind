@@ -191,7 +191,7 @@ for(var i=0; i < result.keywords.length; i++) {
                     ]//END OF yAxes
                   }//END OF scales 
                 }//END OF options
-    }//CLOSES new Chart
+    });//CLOSES new Chart
 
 });     
 
