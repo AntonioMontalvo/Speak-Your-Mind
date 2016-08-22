@@ -1,3 +1,26 @@
+ //create variables to plug into graph
+  var score0;
+  var score1;
+  var score2;
+  var score3;
+  var score4;
+  var score5;
+  var score7;
+  var score8;
+  var score9;
+  var score10;
+ 
+ 
+  var word0;
+  var word1;
+  var word2;
+  var word3;
+  var word4;
+  var word5;
+  var word6;
+  var word7;
+  var word8;
+  var word9;
 
 
 //////////////SENTIMENT API FROM twinword///////////////
@@ -95,7 +118,9 @@ for(var i=0; i < result.keywords.length; i++) {
  
 
         //for loop to appending results to table
-
+        for (var i = 0; i < 10; i++){
+          $('#word').append('<p>' + result.keywords[i].word + " = " + results.keywords[i].score + '</p>');
+        }
 
 
         //this function determines whether the bar for whatever word will be green or red on graph
@@ -161,8 +186,8 @@ for(var i=0; i < result.keywords.length; i++) {
                                   }
                                 ]
                       },//end of index 0
-                      //options: 
-                      {//index 1
+                      //options:  
+                     {//index 1
                                 scales: {
                                     yAxes: [
                                               {
@@ -192,10 +217,6 @@ for(var i=0; i < result.keywords.length; i++) {
                   }//END OF scales 
                 }//END OF options
     });//CLOSES new Chart
-
-//});     
-
-
 
             },
             error: function (err) {
