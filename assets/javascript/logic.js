@@ -3,8 +3,10 @@
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
-    //$('#searchInput').val(final_span.textContent); //get text from textArea
-    var textString = $("#searchInput").val().trim(); //store text 
+
+    $('#searchInput').val(final_span.textContent); //get text from textArea
+    var textString = $("#searchInput").val().trim(); //store text
+
     console.log(textString);
 
         $.ajax({//the ajax method performs an asynchronos HTTP request
@@ -14,7 +16,7 @@
             data: {text: textString},
             datatype: 'json',
             success: function (result) {//when the results are back
-              
+
         console.log(result);
         console.log(result.type);
         console.log(result.score);
@@ -31,16 +33,31 @@
         //assign colors to progress bar according to results type
         if(result.type==="negative"){
           $('#bar').addClass("progress-bar-danger");
-        } 
-        
+        }
+
           else if(result.type==="positive"){
             $('#bar').addClass("progress-bar-success");
           }
 
             else {
               $('#bar').addClass("progress-bar-warning");
-            }
 
+            };
+
+var fireset = [];
+
+for(var i=0; i < result.keywords.length; i++) {
+  var newWord = result.keywords[i].word
+  var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1)
+  fireset.push(capital)
+  $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
+}
+
+
+
+           /* 
+
+<<<<<<< HEAD
           //these arrays will contain the data for the bar graph
           var arrayWords = []; //contains the words
           var arrayScore = []; //contains the score
@@ -54,6 +71,35 @@
           arrayColor.push(getColor(result.keywords[i].score));
           arrayBlack.push('black');
         }
+=======
+          //stores JSON results into variables for graph
+          word0 = result.keywords[0].word;
+          word1 = result.keywords[1].word;
+          word2 = result.keywords[2].word;
+          word3 = result.keywords[3].word;
+          word4 = result.keywords[4].word;
+          word5 = result.keywords[5].word;
+          word6 = result.keywords[6].word;
+          word7 = result.keywords[7].word;
+          word8 = result.keywords[8].word;
+          word9 = result.keywords[9].word;
+
+
+          score0 = result.keywords[0].score;
+          score1 = result.keywords[1].score;
+          score2 = result.keywords[2].score;
+          score3 = result.keywords[3].score;
+          score4 = result.keywords[4].score;
+          score5 = result.keywords[5].score;
+          score6 = result.keywords[6].score;
+          score7 = result.keywords[7].score;
+          score8 = result.keywords[8].score;
+          score9 = result.keywords[9].score;
+ */
+
+        //for loop to appending results to table
+
+>>>>>>> master
 
         //this function determines whether the bar for whatever word will be green or red on graph
         function getColor(number){
@@ -71,6 +117,7 @@
           type: 'horizontalBar',
           data: {
             //words here
+<<<<<<< HEAD
             labels: arrayWords, 
 
             datasets: [{
@@ -96,6 +143,38 @@
           options: {
             scales: {
               yAxes: [{
+=======
+            labels: [],
+            
+            datasets: [{
+                label: 'Positive',
+                //scores below
+                data: [], //add JSON num results here  
+                
+
+                backgroundColor: [
+
+                ],
+                borderColor: [
+
+                ],
+                borderWidth: 2
+          },
+
+        {
+            //this is for the Negative part of the legend
+            label: 'Negative',
+            data: 0,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'black',
+            borderWidth: 2
+        }]
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+>>>>>>> master
                 scaleLabel: {
                     display: true,
                     labelString: 'WORD'
@@ -112,10 +191,20 @@
                 ticks: {
                     beginAtZero:true
                 }
+<<<<<<< HEAD
               }]
             }
           }
         });     
+=======
+            }]
+        }
+    }
+
+});     
+
+
+>>>>>>> master
             },
             error: function (err) {
                 alert(err);
@@ -126,8 +215,6 @@
         });
 
     });
-
-
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
@@ -383,13 +470,3 @@ function showInfo(s) {
 //   copy_info.style.display = 'none';
 //   email_info.style.display = 'none';
 // }
- 
-
-
-
-
-
-
-
-
-
