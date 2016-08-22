@@ -118,9 +118,9 @@ for(var i=0; i < result.keywords.length; i++) {
  
 
         //for loop to appending results to table
-        for (var i = 0; i < 10; i++){
-          $('#word').append('<p>' + result.keywords[i].word + " = " + results.keywords[i].score + '</p>');
-        }
+        // for (var i = 0; i < 10; i++){
+        //   $('#word').append('<p>' + result.keywords[i].word + " = " + results.keywords[i].score + '</p>');
+        // }
 
 
         //this function determines whether the bar for whatever word will be green or red on graph
