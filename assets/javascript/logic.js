@@ -1,5 +1,6 @@
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
+var allScores = [];//stored values from words
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
     // $('#searchInput').val(final_span.textContent); //get text from textArea
@@ -52,6 +53,12 @@ for(var i=0; i < result.keywords.length; i++) {
   $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
   allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
 }
+
+
+    // Save the new price in Firebase
+    database.ref().set({
+      allScores: allScores
+    });
 
 
           //these arrays will contain the data for the bar graph

@@ -6,13 +6,21 @@
    storageBucket: "sentiment-analysis-60e30.appspot.com",
  };
 firebase.initializeApp(config);
-//reference database
-var dataRef = firebase.database();
-var allScores = [];//stored values from words
 
-dataRef.ref('/General_Scores').push({
-    allScores: allScores,
-    
-  });
+// Create a variable to reference the database.
+var database = firebase.database();
+
+
+database.ref('SentimentScores').on("value", function(snapshot) {
+
+	console.log('THE SUM OF ALL THING');
+
+
+// If any errors are experienced, log them to console. 
+}, function (errorObject) {
+
+  	console.log("The read failed: " + errorObject.code);
+
+});
 
 
