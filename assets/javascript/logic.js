@@ -5,14 +5,16 @@
     var textString = $("#searchInput").val().trim(); //store text 
     console.log(textString);
 
-        $.ajax({//the ajax method performs an asynchronos HTTP request
+        $.ajax({//the ajax method performs an asynchronos HTTP request using headers
             url: 'https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=',
             //a request for information from a database using the URL
             type: 'GET', // The HTTP Method
             data: {text: textString},
             datatype: 'json',
             success: function (result) {//when the results are back
-              
+
+
+        // console logs for testing purposes 
         console.log(result);
         console.log(result.type);
         console.log(result.score);
@@ -20,7 +22,7 @@
         $("#sentimentScorePanel").html(result.type+"= "+result.score);
 
         $("#sentimentScore").html(result.score);
-        //The Math.abs() function returns the absolute value of a number
+        //The Math.abs() function returns the absolute value of a number because we use this for graphing
         var barWidth= Math.abs(result.score*100)+"%";
         console.log(parseInt(barWidth));
         //
@@ -38,6 +40,8 @@
             else {
               $('#bar').addClass("progress-bar-warning");
             };
+
+        // console logs for testing purposes             
 
         console.log(result.keywords["0"].word);
         console.log(result.keywords["0"].score);
@@ -62,11 +66,15 @@
 
     });
 
-
-
-//////////////Google Cloud Speech API ///////////////
+// Start of Voice Recognition API Code**************************************************************
+ // ****************************************************************************************************
+ // ****************************************************************************************************
+// *********************************************************************************************
+//PLEASE DO NOT TOUCH ANYTHING IN THIS SECTION!----Google Speech to Text API - ///////////////
 /////////////////////////////////////////////////////
 
+
+// populates drop-down to select language parameter to send API
 var langs =
 [['Afrikaans',       ['af-ZA']],
  ['Bahasa Indonesia',['id-ID']],
@@ -131,14 +139,18 @@ var langs =
  ['日本語',           ['ja-JP']],
  ['Lingua latīna',   ['la']]];
 
+
+// populates drop down with the language options array above
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
 
+// sets the default language to English based on its index position
 select_language.selectedIndex = 6;
 updateCountry();
 select_dialect.selectedIndex = 6;
 
+// more language dropdown stuff
 showInfo('info_start');
 function updateCountry() {
   for (var i = select_dialect.options.length - 1; i >= 0; i--) {
@@ -150,11 +162,15 @@ function updateCountry() {
   }
   select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
+
+// declares global variables
 var create_email = false;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+
+// if webspeech file exists, then run function to upgrade, otherwise, show error messages
 
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
@@ -247,6 +263,8 @@ function capitalize(s) {
   return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
 
+// this is code we don't need for this implementation, but if we wanted to enable email
+
 function createEmail() {
   var n = final_transcript.indexOf('\n');
   if (n < 0 || n >= 80) {
@@ -256,6 +274,8 @@ function createEmail() {
   var body = encodeURI(final_transcript.substring(n + 1));
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
+
+// this is code we don't need for this implementation, but if we wanted to enable email or copy/paste we could use this
 // function copyButton() {
 //   if (recognizing) {
 //     recognizing = false;
@@ -278,6 +298,8 @@ function createEmail() {
 //   showInfo('');
 // }
 
+
+// when mic button is pressed, starts filling span with spoken text results
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
@@ -307,6 +329,9 @@ function showInfo(s) {
     info.style.visibility = 'hidden';
   }
 }
+
+
+// more code for the email and copy functions we are not using
 // var current_style;
 // function showButtons(style) {
 //   if (style == current_style) {
@@ -318,7 +343,10 @@ function showInfo(s) {
 //   copy_info.style.display = 'none';
 //   email_info.style.display = 'none';
 // }
- 
+ // END OF VOICE RECOGNITION API CODE
+ // ***************************************************************************************************
+ // ****************************************************************************************************
+ // ****************************************************************************************************
 
 
 
