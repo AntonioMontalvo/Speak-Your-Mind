@@ -41,18 +41,9 @@
                $('#bar').addClass("progress-bar-warning");
 
             };
-            },
-            error: function (err) {
-                alert(err);
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
-            }
-        });
-
-    });
 
 
+            
 
 var fireset = [];
 
@@ -170,7 +161,7 @@ for(var i=0; i < result.keywords.length; i++) {
                                   }
                                 ]
                       },//end of index 0
-                                {//index 1
+                      options: {//index 1
                                 scales: {
                                     yAxes: [
                                               {
@@ -201,11 +192,20 @@ for(var i=0; i < result.keywords.length; i++) {
                 }//END OF options
     }//CLOSES new Chart
 
-);     
+});     
 
 
 
+            },
+            error: function (err) {
+                alert(err);
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
+            }
+        });
 
+    });
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
