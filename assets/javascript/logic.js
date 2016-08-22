@@ -17,32 +17,42 @@
             datatype: 'json',
             success: function (result) {//when the results are back
 
-        console.log(result);
-        console.log(result.type);
-        console.log(result.score);
-        //we access Sentiment Analysis Results and write the type and score
-        $("#sentimentScorePanel").html(result.type+"= "+result.score);
+            console.log(result);
+            console.log(result.type);
+            console.log(result.score);
+            //we access Sentiment Analysis Results and write the type and score
+            $("#sentimentScorePanel").html(result.type+"= "+result.score);
 
-        $("#sentimentScore").html(result.score);
-        //The Math.abs() function returns the absolute value of a number
-        var barWidth= Math.abs(result.score*100)+"%";
-        console.log(parseInt(barWidth));
-        //
-        $('#bar').width(barWidth);//apply barWidth to our progress bar
-        console.log((Math.abs(result.score*100)));
-        //assign colors to progress bar according to results type
-        if(result.type==="negative"){
-          $('#bar').addClass("progress-bar-danger");
-        }
-
-          else if(result.type==="positive"){
-            $('#bar').addClass("progress-bar-success");
-          }
-
+            $("#sentimentScore").html(result.score);
+            //The Math.abs() function returns the absolute value of a number
+            var barWidth= Math.abs(result.score*100)+"%";
+            console.log(parseInt(barWidth));
+            
+            $('#bar').width(barWidth);//apply barWidth to our progress bar
+            console.log((Math.abs(result.score*100)));
+            //assign colors to progress bar according to results type
+            if(result.type==="negative"){
+              $('#bar').addClass("progress-bar-danger");
+            }
+            else if(result.type==="positive"){
+              $('#bar').addClass("progress-bar-success");
+            }
             else {
-              $('#bar').addClass("progress-bar-warning");
+               $('#bar').addClass("progress-bar-warning");
 
             };
+            },
+            error: function (err) {
+                alert(err);
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
+            }
+        });
+
+    });
+
+
 
 var fireset = [];
 
@@ -54,10 +64,6 @@ for(var i=0; i < result.keywords.length; i++) {
 }
 
 
-
-           /* 
-
-<<<<<<< HEAD
           //these arrays will contain the data for the bar graph
           var arrayWords = []; //contains the words
           var arrayScore = []; //contains the score
@@ -71,7 +77,7 @@ for(var i=0; i < result.keywords.length; i++) {
           arrayColor.push(getColor(result.keywords[i].score));
           arrayBlack.push('black');
         }
-=======
+
           //stores JSON results into variables for graph
           word0 = result.keywords[0].word;
           word1 = result.keywords[1].word;
@@ -95,11 +101,11 @@ for(var i=0; i < result.keywords.length; i++) {
           score7 = result.keywords[7].score;
           score8 = result.keywords[8].score;
           score9 = result.keywords[9].score;
- */
+ 
 
         //for loop to appending results to table
 
->>>>>>> master
+
 
         //this function determines whether the bar for whatever word will be green or red on graph
         function getColor(number){
@@ -113,108 +119,93 @@ for(var i=0; i < result.keywords.length; i++) {
 
         //start of chart info
         var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {//OBJECT
           type: 'horizontalBar',
           data: {
             //words here
-<<<<<<< HEAD
-            labels: arrayWords, 
+                labels: arrayWords, 
 
-            datasets: [{
-              label: 'Positive Sentiment',
-              //scores below
-              display: false,
-              data: arrayScore, //add JSON num results here  
-              backgroundColor: arrayColor,
-              borderColor: arrayBlack,
-              borderWidth: 2
-              },
-
-              {
-                //this is for the Negative part of the legend
-                label: 'Negative Sentiment',
-                data: 0,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'black',
-                borderWidth: 2
-              }]   
-          },
+                datasets: [
+                            {
+                            label: 'Positive Sentiment',
+                            //scores below
+                            display: false,
+                            data: arrayScore, //add JSON num results here  
+                            backgroundColor: arrayColor,
+                            borderColor: arrayBlack,
+                            borderWidth: 2
+                            },
+                            {
+                              //this is for the Negative part of the legend
+                              label: 'Negative Sentiment',
+                              data: 0,
+                              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                              borderColor: 'black',
+                              borderWidth: 2
+                            }
+                          ]   
+                },//END OF data 
     
           options: {
             scales: {
-              yAxes: [{
-=======
-            labels: [],
-            
-            datasets: [{
-                label: 'Positive',
-                //scores below
-                data: [], //add JSON num results here  
-                
+              yAxes: [
+                      {//index 0
+                      labels: [],
+                      datasets: [
+                                  {
+                                  label: 'Positive',
+                                  //scores below
+                                  data: [], //add JSON num results here  
+                                  backgroundColor: [],
+                                  borderColor: [],
+                                  borderWidth: 2
+                                  },
+                                  {
+                                  //this is for the Negative part of the legend
+                                  label: 'Negative',
+                                  data: 0,
+                                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                  borderColor: 'black',
+                                  borderWidth: 2
+                                  }
+                                ]
+                      },//end of index 0
+                      options: {//index 1
+                                scales: {
+                                    yAxes: [
+                                              {
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'WORD'
+                                                },
+                                                ticks: {
+                                                    beginAtZero:true
+                                                }
+                                              }
+                                           ],
+                                    xAxes: [
+                                              {
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'SENTIMENT SCORE'
+                                              },
+                                                ticks: {
+                                                    beginAtZero:true
+                                                }
+                                              }
+                                           ]
+                                        }
+                                }//end of index 1
+                    ]//END OF yAxes
+                  }//END OF scales 
+                }//END OF options
+    }//CLOSES new Chart
 
-                backgroundColor: [
-
-                ],
-                borderColor: [
-
-                ],
-                borderWidth: 2
-          },
-
-        {
-            //this is for the Negative part of the legend
-            label: 'Negative',
-            data: 0,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'black',
-            borderWidth: 2
-        }]
-    },
-
-    options: {
-        scales: {
-            yAxes: [{
->>>>>>> master
-                scaleLabel: {
-                    display: true,
-                    labelString: 'WORD'
-                },
-                ticks: {
-                    beginAtZero:true
-                }
-              }],
-              xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'SENTIMENT SCORE'
-                },
-                ticks: {
-                    beginAtZero:true
-                }
-<<<<<<< HEAD
-              }]
-            }
-          }
-        });     
-=======
-            }]
-        }
-    }
-
-});     
+);     
 
 
->>>>>>> master
-            },
-            error: function (err) {
-                alert(err);
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
-            }
-        });
 
-    });
+
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
