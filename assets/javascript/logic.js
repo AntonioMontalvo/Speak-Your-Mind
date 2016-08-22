@@ -1,8 +1,8 @@
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
-    $('#searchInput').val(final_span.textContent); //get text from textArea
-    var textString = $("#searchInput").val().trim(); //store text 
+    //$('#searchInput').val(final_span.textContent); //get text from textArea
+    var textString = $("#searchInput").val().trim(); //store text
     console.log(textString);
 
         $.ajax({//the ajax method performs an asynchronos HTTP request
@@ -12,7 +12,7 @@
             data: {text: textString},
             datatype: 'json',
             success: function (result) {//when the results are back
-              
+
         console.log(result);
         console.log(result.type);
         console.log(result.score);
@@ -29,8 +29,8 @@
         //assign colors to progress bar according to results type
         if(result.type==="negative"){
           $('#bar').addClass("progress-bar-danger");
-        } 
-        
+        }
+
           else if(result.type==="positive"){
             $('#bar').addClass("progress-bar-success");
           }
@@ -39,6 +39,11 @@
               $('#bar').addClass("progress-bar-warning");
             };
 
+for(var i=0; i < result.keywords.length; i++) {
+
+  $("#word"+i).html(result.keywords[i].word+"= "+result.keywords[i].score)
+  
+}
         console.log(result.keywords["0"].word);
         console.log(result.keywords["0"].score);
         console.log(result.keywords["1"].word);
@@ -46,11 +51,11 @@
         console.log(result.keywords["2"].word);
         console.log(result.keywords["2"].score);
         //from the results object we access the keywords array and display
-        $("#word1").html(result.keywords["0"].word+"= "+result.keywords["0"].score);
-        $("#word2").html(result.keywords["1"].word+"= "+result.keywords["1"].score);
-        $("#word3").html(result.keywords["2"].word+"= "+result.keywords["2"].score);  
-        $("#word4").html(result.keywords["3"].word+"= "+result.keywords["3"].score);
-        $("#word5").html(result.keywords["4"].word+"= "+result.keywords["4"].score);  
+  //      $("#word1").html(result.keywords["0"].word+"= "+result.keywords["0"].score);
+//        $("#word2").html(result.keywords["1"].word+"= "+result.keywords["1"].score);
+  //      $("#word3").html(result.keywords["2"].word+"= "+result.keywords["2"].score);
+    //    $("#word4").html(result.keywords["3"].word+"= "+result.keywords["3"].score);
+    //    $("#word5").html(result.keywords["4"].word+"= "+result.keywords["4"].score);
             },
             error: function (err) {
                 alert(err);
@@ -318,13 +323,3 @@ function showInfo(s) {
 //   copy_info.style.display = 'none';
 //   email_info.style.display = 'none';
 // }
- 
-
-
-
-
-
-
-
-
-
