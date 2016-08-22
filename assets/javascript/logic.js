@@ -68,31 +68,7 @@ for(var i=0; i < result.keywords.length; i++) {
           arrayBlack.push('black');
         }
 
-          // //stores JSON results into variables for graph
-          // word0 = result.keywords[0].word;
-          // word1 = result.keywords[1].word;
-          // word2 = result.keywords[2].word;
-          // word3 = result.keywords[3].word;
-          // word4 = result.keywords[4].word;
-          // word5 = result.keywords[5].word;
-          // word6 = result.keywords[6].word;
-          // word7 = result.keywords[7].word;
-          // word8 = result.keywords[8].word;
-          // word9 = result.keywords[9].word;
-
-
-          // score0 = result.keywords[0].score;
-          // score1 = result.keywords[1].score;
-          // score2 = result.keywords[2].score;
-          // score3 = result.keywords[3].score;
-          // score4 = result.keywords[4].score;
-          // score5 = result.keywords[5].score;
-          // score6 = result.keywords[6].score;
-          // score7 = result.keywords[7].score;
-          // score8 = result.keywords[8].score;
-          // score9 = result.keywords[9].score;
- 
-
+//////////////CHART///////////////
 
         //this function determines whether the bar for whatever word will be green or red on graph
         function getColor(number){
@@ -164,101 +140,7 @@ for(var i=0; i < result.keywords.length; i++) {
         });
 
     });
-    //     //start of chart info
-    //     var ctx = document.getElementById("myChart");
-    //     var myChart = new Chart(ctx, {//OBJECT
-    //       type: 'horizontalBar',
-    //       data: {
-    //         //words here
-    //             labels: arrayWords, 
-
-    //             datasets: [
-    //                         {
-    //                         label: 'Positive Sentiment',
-    //                         //scores below
-    //                         display: false,
-    //                         data: arrayScore, //add JSON num results here  
-    //                         backgroundColor: arrayColor,
-    //                         borderColor: arrayBlack,
-    //                         borderWidth: 2
-    //                         },
-    //                         {
-    //                           //this is for the Negative part of the legend
-    //                           label: 'Negative Sentiment',
-    //                           data: 0,
-    //                           backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    //                           borderColor: 'black',
-    //                           borderWidth: 2
-    //                         }
-    //                       ]   
-    //             },//END OF data 
     
-    //       options: {
-    //         scales: {
-    //           yAxes: [
-    //                   {//index 0
-    //                   labels: [],
-    //                   datasets: [
-    //                               {
-    //                               label: 'Positive',
-    //                               //scores below
-    //                               data: [], //add JSON num results here  
-    //                               backgroundColor: [],
-    //                               borderColor: [],
-    //                               borderWidth: 2
-    //                               },
-    //                               {
-    //                               //this is for the Negative part of the legend
-    //                               label: 'Negative',
-    //                               data: 0,
-    //                               backgroundColor: 'rgba(255, 99, 132, 0.2)',
-    //                               borderColor: 'black',
-    //                               borderWidth: 2
-    //                               }
-    //                             ]
-    //                   },//end of index 0
-    //                   //options:  
-    //                  {//index 1
-    //                             scales: {
-    //                                 yAxes: [
-    //                                           {
-    //                                             scaleLabel: {
-    //                                                 display: true,
-    //                                                 labelString: 'WORD'
-    //                                             },
-    //                                             ticks: {
-    //                                                 beginAtZero:true
-    //                                             }
-    //                                           }
-    //                                        ],
-    //                                 xAxes: [
-    //                                           {
-    //                                             scaleLabel: {
-    //                                                 display: true,
-    //                                                 labelString: 'SENTIMENT SCORE'
-    //                                           },
-    //                                             ticks: {
-    //                                                 beginAtZero:true
-    //                                             }
-    //                                           }
-    //                                        ]
-    //                                     }
-    //                             }//end of index 1
-    //                 ]//END OF yAxes
-    //               }//END OF scales 
-    //             }//END OF options
-    // });//CLOSES new Chart
-
-    //         },
-    //         error: function (err) {
-    //             alert(err);
-    //         },
-    //         beforeSend: function (xhr) {
-    //             xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
-    //         }
-    //     });
-
-    // });
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
