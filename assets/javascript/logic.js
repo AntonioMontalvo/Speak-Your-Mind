@@ -147,7 +147,14 @@ for(var i=0; i < result.keywords.length; i++) {
         });
 
     });
-    
+
+var avg = 0;
+var avg = 0;
+for (var i = 0; i < allScores.length; i++){
+    avg += allScores[i]/allScores.length;
+}
+console.log (avg);
+
 
 //////////////Google Cloud Speech API ///////////////
 /////////////////////////////////////////////////////
