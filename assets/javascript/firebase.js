@@ -13,7 +13,7 @@ clickCounter = 0;
 
 $("#submitButtonOrWhatever").on('click', function() {
     dataRef.ref().on('value', function(snapshot) {
-        dataRef.ref('userObject'+clickCounter).set({
+        dataRef.ref('userObject/'+clickCounter).set({
           words: words,
           scores: scores
         });
