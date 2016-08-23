@@ -100,3 +100,10 @@
     background-color:transparent;
     padding: 0;
   }
+
+  #chart{
+    margin-right: 30px;
+  }
+  #mychart{
+    width: 100%;
+  }
