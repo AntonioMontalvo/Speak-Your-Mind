@@ -23,16 +23,19 @@ firebase.auth().onAuthStateChanged(function(user) {
     $(".text_process_button").on('click', function() {
 
         dataRef.ref().on('value', function(snapshot) {
-            dataRef.ref('users/userObject/'+clickCounter).set({
-              allScores: allScores,
+            dataRef.ref('users/'+uid).set({
+              avg: avg,
               textString: textString,
-              uid: uid
-
             });
           });
 
-    $("submitButtonOrWhatever").val();
+    $(".text_process_button").val();
     return false
     });
   }
 });
+dataRef.ref().on('value', function(snapshot) {
+  var a = snapshot.numChildren();
+  dataRef.ref('users/')
+
+})
