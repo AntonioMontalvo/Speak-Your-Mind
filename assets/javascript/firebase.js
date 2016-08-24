@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     $(".text_process_button").on('click', function() {
 
         dataRef.ref().on('value', function(snapshot) {
-            dataRef.ref('users/'+uid).set({
+            dataRef.ref('users/'+uid).push({
               avg: avg,
               textString: textString,
             });
