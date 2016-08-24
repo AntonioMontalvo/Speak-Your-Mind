@@ -59,7 +59,7 @@ for(var i=0; i < result.keywords.length; i++) {
 
     // Save the new price in Firebase
     database.ref().push({
-      avg: avg
+      allScores: allScores
     });
 
 
@@ -151,11 +151,11 @@ for(var i=0; i < result.keywords.length; i++) {
     });
 
 var avg = 0;
-var avg = 0;
+
 for (var i = 0; i < allScores.length; i++){
     avg += allScores[i]/allScores.length;
 }
-console.log (avg);
+console.log ('This is the mean ' + avg);
 
 
 //////////////Google Cloud Speech API ///////////////

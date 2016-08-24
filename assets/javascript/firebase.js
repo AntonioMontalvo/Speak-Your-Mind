@@ -18,7 +18,12 @@ database.ref('SentimentScores').on("value", function(snapshot) {
 
 // If any errors are experienced, log them to console. 
 }, function (errorObject) {
+	var avg = 0;
 
+for (var i = 0; i < allScores.length; i++){
+    avg += allScores[i]/allScores.length;
+}
+console.log ('This is the mean ' + avg);
   	console.log("The read failed: " + errorObject.code);
 
 });
