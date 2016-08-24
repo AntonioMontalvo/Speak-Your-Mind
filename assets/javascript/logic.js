@@ -26,7 +26,7 @@ var allScores = [];//stored values from words
             //The Math.abs() function returns the absolute value of a number
             var barWidth= Math.abs(result.score*100)+"%";
             console.log(parseInt(barWidth));
-            
+
             $('#bar').width(barWidth);//apply barWidth to our progress bar
             console.log((Math.abs(result.score*100)));
             //assign colors to progress bar according to results type
@@ -66,7 +66,7 @@ for(var i=0; i < result.keywords.length; i++) {
           var arrayScore = []; //contains the score
           var arrayColor = []; //array for if red or green
           var arrayBlack = []; //however many black color sit needs
- 
+
         //for loop to add data into the arrays
         for (var i=0; i < result.keywords.length; i++){
           arrayWords.push(result.keywords[i].word);
@@ -92,13 +92,13 @@ for(var i=0; i < result.keywords.length; i++) {
           type: 'horizontalBar',
           data: {
             //words here
-            labels: arrayWords, 
+            labels: arrayWords,
 
             datasets: [{
               label: 'Positive Sentiment',
               //scores below
               display: false,
-              data: arrayScore, //add JSON num results here  
+              data: arrayScore, //add JSON num results here
               backgroundColor: arrayColor,
               borderColor: arrayBlack,
               borderWidth: 2
@@ -111,9 +111,9 @@ for(var i=0; i < result.keywords.length; i++) {
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'black',
                 borderWidth: 2
-              }]   
+              }]
           },
-    
+
           options: {
             scales: {
               yAxes: [{
@@ -136,7 +136,7 @@ for(var i=0; i < result.keywords.length; i++) {
               }]
             }
           }
-        });     
+        });
             },
             error: function (err) {
                 alert(err);

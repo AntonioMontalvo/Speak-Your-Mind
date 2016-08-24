@@ -9,24 +9,29 @@ firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
-clickCounter = 0;
+firebase.auth().signInAnonymously().catch(function(error) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+})
 
-$("#submitButtonOrWhatever").on('click', function() {
-    dataRef.ref().on('value', function(snapshot) {
-        dataRef.ref('userObject/'+clickCounter).set({
-          words: words,
-          scores: scores
-        });
-      };
-  clickCounter += 1;
-  $("submitButtonOrWhatever").val();
-  return false
-});
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
 
+    $("#submitButtonOrWhatever").on('click', function() {
 
-// If any errors are experienced, log them to console.
-}, function (errorObject) {
+        dataRef.ref().on('value', function(snapshot) {
+            dataRef.ref('users/userObject/'+clickCounter).set({
+              words: words,
+              scores: scores
+              uid: uid
+              
+            });
+          };
 
-   console.log("The read failed: " + errorObject.code);
-
+    $("submitButtonOrWhatever").val();
+    return false
+    });
+  }
 });
