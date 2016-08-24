@@ -2,6 +2,7 @@
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
 var textString;
+var avg = 0;
 $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
@@ -151,7 +152,7 @@ for(var i=0; i < result.keywords.length; i++) {
 
     });
 
-var avg = 0;
+
 
 for (var i = 0; i < allScores.length; i++){
     avg += allScores[i]/allScores.length;
