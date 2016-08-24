@@ -2,7 +2,8 @@
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
 var textString;
-var avg = [];
+var avg;
+
 $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
@@ -23,7 +24,7 @@ $('#searchInput').hide();
             console.log(result);
             console.log(result.type);
             console.log(result.score);
-            avg.push(result.score);
+            avg = result.score;
             //we access Sentiment Analysis Results and write the type and score
             $("#sentimentScorePanel").html(result.type+"= "+result.score);
 
@@ -58,11 +59,6 @@ for(var i=0; i < result.keywords.length; i++) {
   $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
   allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
 }
-
-// for (var i = 0; i < allScores.length; i++){
-//     avg += allScores[i]/allScores.length;
-// }
-// console.log ('The mean is: ' + avg);
 
 
           //these arrays will contain the data for the bar graph
@@ -156,7 +152,10 @@ for(var i=0; i < result.keywords.length; i++) {
     });
 
 
-
+// for (var i = 0; i < .length; i++){
+//     avg += allScores[i]/allScores.length;
+// }
+// console.log ('The mean is: ' + avg);
 
 
 //////////////Google Cloud Speech API ///////////////
