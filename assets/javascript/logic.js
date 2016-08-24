@@ -56,9 +56,7 @@ for(var i=0; i < result.keywords.length; i++) {
 
 
     // Save the new price in Firebase
-    database.ref().set({
-      allScores: allScores
-    });
+
 
 
           //these arrays will contain the data for the bar graph

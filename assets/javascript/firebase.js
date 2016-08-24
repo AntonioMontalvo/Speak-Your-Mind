@@ -18,17 +18,18 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
+    console.log(uid)
 
-    $("#submitButtonOrWhatever").on('click', function() {
+    $(".text_process_button").on('click', function() {
 
         dataRef.ref().on('value', function(snapshot) {
             dataRef.ref('users/userObject/'+clickCounter).set({
-              words: words,
-              scores: scores
+              allScores: allScores,
+              textString: textString,
               uid: uid
-              
+
             });
-          };
+          });
 
     $("submitButtonOrWhatever").val();
     return false
