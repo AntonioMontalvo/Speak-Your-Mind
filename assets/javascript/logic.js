@@ -1,6 +1,8 @@
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
+$('#searchParameters').hide();
+$('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
     $('#searchInput').val(final_span.textContent); //get text from textArea
