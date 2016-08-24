@@ -79,6 +79,13 @@ for(var i=0; i < result.keywords.length; i++) {
           arrayBlack.push('black');
         }
 
+
+
+for (var i = 0; i < allScores.length; i++){
+    avg += allScores[i]/allScores.length;
+}
+console.log ('The mean is: ' + avg);
+
 //////////////CHART///////////////
 
         //this function determines whether the bar for whatever word will be green or red on graph
@@ -154,10 +161,6 @@ for(var i=0; i < result.keywords.length; i++) {
 
 
 
-for (var i = 0; i < allScores.length; i++){
-    avg += allScores[i]/allScores.length;
-}
-console.log ('This is the mean ' + avg);
 
 
 //////////////Google Cloud Speech API ///////////////
