@@ -39,8 +39,5 @@ dataRef.ref().on('value', function(snapshot) {
   dataRef.ref('users/')
 
 });
-// for (var i = 0; i < allScores.length; i++){
-//     avg += allScores[i]/allScores.length;
-// }
-// console.log ('The mean is: ' + avg);
+
 

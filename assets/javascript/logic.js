@@ -23,7 +23,7 @@ $('#searchInput').hide();
             console.log(result);
             console.log(result.type);
             console.log(result.score);
-            avg.push(resul.score);
+            avg.push(result.score);
             //we access Sentiment Analysis Results and write the type and score
             $("#sentimentScorePanel").html(result.type+"= "+result.score);
 
