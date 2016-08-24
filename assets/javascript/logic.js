@@ -58,7 +58,7 @@ for(var i=0; i < result.keywords.length; i++) {
 
 
     // Save the new price in Firebase
-    database.ref().set({
+    database.ref().push({
       allScores: allScores
     });
 
