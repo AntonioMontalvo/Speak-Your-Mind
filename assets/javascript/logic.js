@@ -2,7 +2,7 @@
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
 var textString;
-var avg = 0;
+var barWidth;
 $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
@@ -28,7 +28,7 @@ $('#searchInput').hide();
 
             $("#sentimentScore").html(result.score);
             //The Math.abs() function returns the absolute value of a number
-            var barWidth= Math.abs(result.score*100)+"%";
+            barWidth= Math.abs(result.score*100)+"%";
             console.log(parseInt(barWidth));
 
             $('#bar').width(barWidth);//apply barWidth to our progress bar
@@ -59,6 +59,7 @@ for(var i=0; i < result.keywords.length; i++) {
 }
 
 
+
     // Save the new price in Firebase
 
 
@@ -81,10 +82,6 @@ for(var i=0; i < result.keywords.length; i++) {
 
 
 
-for (var i = 0; i < allScores.length; i++){
-    avg += allScores[i]/allScores.length;
-}
-console.log ('The mean is: ' + avg);
 
 //////////////CHART///////////////
 
