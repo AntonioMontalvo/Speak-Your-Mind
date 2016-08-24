@@ -2,7 +2,7 @@
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
 var textString;
-var barWidth;
+var avg = [];
 $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
@@ -23,12 +23,13 @@ $('#searchInput').hide();
             console.log(result);
             console.log(result.type);
             console.log(result.score);
+            avg.push(resul.score);
             //we access Sentiment Analysis Results and write the type and score
             $("#sentimentScorePanel").html(result.type+"= "+result.score);
 
             $("#sentimentScore").html(result.score);
             //The Math.abs() function returns the absolute value of a number
-            barWidth= Math.abs(result.score*100)+"%";
+            var barWidth= Math.abs(result.score*100)+"%";
             console.log(parseInt(barWidth));
 
             $('#bar').width(barWidth);//apply barWidth to our progress bar
@@ -58,12 +59,10 @@ for(var i=0; i < result.keywords.length; i++) {
   allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
 }
 
-
-
-    // Save the new price in Firebase
-
-
-
+// for (var i = 0; i < allScores.length; i++){
+//     avg += allScores[i]/allScores.length;
+// }
+// console.log ('The mean is: ' + avg);
 
 
           //these arrays will contain the data for the bar graph

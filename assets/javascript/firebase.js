@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         dataRef.ref().on('value', function(snapshot) {
             dataRef.ref('users/'+uid).set({
-              barWidth: barwidth,
+              avg: avg,
               textString: textString,
             });
           });
@@ -36,8 +36,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 dataRef.ref().on('value', function(snapshot) {
   var a = snapshot.numChildren();
-  dataRef.ref('users/');
-  console.log("average is: " + barwidth);
+  dataRef.ref('users/')
 
 });
 // for (var i = 0; i < allScores.length; i++){
