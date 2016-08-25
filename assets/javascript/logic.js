@@ -4,7 +4,7 @@ var allScores = [];//stored values from words
 var textString;
 var avg;
 var usersAvg = [];
-var totalMean = 0;
+var totalMean;
 
     for (var i = 0; i < usersAvg.length; i++){
     totalMean += usersAvg[i]/usersAvg.length;
