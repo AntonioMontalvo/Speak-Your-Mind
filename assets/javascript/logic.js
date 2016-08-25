@@ -80,7 +80,7 @@ $('#searchInput').hide();
             } else if (result.score > .20) {
               $("#face").append("<img src='assets/img/sad.jpg' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Is Garbage! Give Up Already!");
-            } else if (result.score >= 0){
+            } else {
               $("#face").append("<img src='assets/img/dead.png' style='width: 500px'/>")
               $("#myModalLabel").html("You Have No Pulse.");
             }
