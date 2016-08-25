@@ -193,7 +193,7 @@ for(var i=0; i < result.keywords.length; i++) {
     });
 
     $("#myModal").on("hidden.bs.modal", function () {
-      $("#face").remove();
+
     });
 
 
