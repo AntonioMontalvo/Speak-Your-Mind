@@ -183,6 +183,9 @@ for(var i=0; i < result.keywords.length; i++) {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
             }
+        }).done(function(response) {
+          $("#myModal").modal({ keyboard: false })
+          $("#myModal").modal('show')
         });
 
     });
