@@ -63,7 +63,7 @@ $('#searchInput').hide();
 
             console.log("HELLO???");
             console.log(avg);
-            $("#face").remove();
+
 
             if(result.score > .90) {
               $("#face").append("<img src='assets/img/amazing.png' style='width: 500px'/>");
@@ -188,6 +188,7 @@ for(var i=0; i < result.keywords.length; i++) {
         }).done(function(response) {
           $("#myModal").modal({ keyboard: false })
           $("#myModal").modal('show')
+          $("#face").remove();
         });
 
     });
