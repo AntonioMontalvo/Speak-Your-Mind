@@ -4,12 +4,13 @@ var allScores = [];//stored values from words
 var textString;
 var avg;
 var usersAvg = [];
-var totalMean;
+
 
     for (var i = 0; i < usersAvg.length; i++){
-    totalMean = usersAvg[i]/usersAvg.length;
+    var totalMean = usersAvg[i]/usersAvg.length;
+    console.log ('The mean is: ' + totalMean);
   }
-console.log ('The mean is: ' + totalMean);
+
 
 
 $('#searchParameters').hide();
