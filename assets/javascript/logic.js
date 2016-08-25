@@ -66,22 +66,22 @@ $('#searchInput').hide();
 
 
             if(result.score > .90) {
-              $("#face").append("<img src='assets/img/amazing.png' style='width: 500px'/>");
+              $("#face").html("<img src='assets/img/amazing.png' style='width: 500px'/>");
               $("#myModalLabel").html("Your Life Is Amazing. Well done.");
             } else if (result.score > .75){
-              $("#face").append("<img src='assets/img/cool.png' style='width: 500px'/>");
+              $("#face").html("<img src='assets/img/cool.png' style='width: 500px'/>");
               $("#myModalLabel").html("You Seem To Be Doing Quite Well.");
             } else if (result.score > .50) {
-              $("#face").append("<img src='assets/img/neutral.png' style='width: 500px'/>")
+              $("#face").html("<img src='assets/img/neutral.png' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Could Be Better..");
             } else if (result.score > .30) {
-              $("#face").append("<img src='assets/img/unamused.png' style='width: 500px'/>")
+              $("#face").html("<img src='assets/img/unamused.png' style='width: 500px'/>")
               $("#myModalLabel").html("How Did It Come To This???");
             } else if (result.score > .20) {
-              $("#face").append("<img src='assets/img/sad.jpg' style='width: 500px'/>")
+              $("#face").html("<img src='assets/img/sad.jpg' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Is Garbage! Give Up Already!");
             } else {
-              $("#face").append("<img src='assets/img/dead.png' style='width: 500px'/>")
+              $("#face").html("<img src='assets/img/dead.png' style='width: 500px'/>")
               $("#myModalLabel").html("You Have No Pulse.");
             }
 
