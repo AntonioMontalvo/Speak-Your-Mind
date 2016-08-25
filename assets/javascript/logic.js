@@ -65,19 +65,19 @@ $('#searchInput').hide();
             console.log(avg);
 
 
-            if(result.score > .90) {
+            if(result.score > .50) {
               $("#face").html("<img src='assets/img/amazing.png' style='width: 500px'/>");
               $("#myModalLabel").html("Your Life Is Amazing. Well done.");
-            } else if (result.score > .75){
+            } else if (result.score > .40){
               $("#face").html("<img src='assets/img/cool.png' style='width: 500px'/>");
               $("#myModalLabel").html("You Seem To Be Doing Quite Well.");
-            } else if (result.score > .50) {
+            } else if (result.score > 0) {
               $("#face").html("<img src='assets/img/neutral.png' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Could Be Better..");
-            } else if (result.score > .30) {
+            } else if (result.score > -.30) {
               $("#face").html("<img src='assets/img/unamused.png' style='width: 500px'/>")
               $("#myModalLabel").html("How Did It Come To This???");
-            } else if (result.score > .20) {
+            } else if (result.score > .40) {
               $("#face").html("<img src='assets/img/sad.jpg' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Is Garbage! Give Up Already!");
             } else {
