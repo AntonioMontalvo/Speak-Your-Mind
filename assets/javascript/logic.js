@@ -1,9 +1,27 @@
+
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
 var allScores = [];//stored values from words
+<<<<<<< Updated upstream
 $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
+=======
+var textString;
+var avg;
+var usersAvg = [];
+
+$(".text_process_button").on('click', function(){
+    for (var i = 0; i < usersAvg.length; i++){
+        var totalMean = usersAvg[i]/usersAvg.length;
+    }
+    console.log ('The mean is: ' + totalMean);
+});
+
+$('#searchParameters').hide();
+$('#searchInput').hide();
+$(".text_process_button").click(function(){//This is the Get Sentiment Scores button
+>>>>>>> Stashed changes
 
     $('#searchInput').val(final_span.textContent); //get text from textArea
     var textString = $("#searchInput").val().trim(); //store text
@@ -18,6 +36,7 @@ $('#searchInput').hide();
             datatype: 'json',
             success: function (result) {//when the results are back
 
+<<<<<<< Updated upstream
             console.log(result);
             console.log(result.type);
             console.log(result.score);
@@ -42,21 +61,48 @@ $('#searchInput').hide();
                $('#bar').addClass("progress-bar-warning");
 
             };
+=======
+                console.log(result);
+                console.log(result.type);
+                console.log(result.score);
+                avg = result.score;
+                //we access Sentiment Analysis Results and write the type and score
+                $("#sentimentScorePanel").html(result.type+"= "+result.score);
+
+                $("#sentimentScore").html(result.score);
+                //The Math.abs() function returns the absolute value of a number
+                var barWidth= Math.abs(result.score*100)+"%";
+                console.log(parseInt(barWidth));
+
+                $('#bar').width(barWidth);//apply barWidth to our progress bar
+                console.log((Math.abs(result.score*100)));
+                //assign colors to progress bar according to results type
+                if(result.type==="negative"){
+                  $('#bar').addClass("progress-bar-danger");
+                }
+                else if(result.type==="positive"){
+                  $('#bar').addClass("progress-bar-success");
+                }
+                else {
+                   $('#bar').addClass("progress-bar-warning");
+                };
+>>>>>>> Stashed changes
 
 
 
 
-var fireset = [];
+                var fireset = [];
 
-for(var i=0; i < result.keywords.length; i++) {
-  var newWord = result.keywords[i].word
-  var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1)
-  fireset.push(capital)
-  $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
-  allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
-}
+                for(var i=0; i < result.keywords.length; i++) {
+                    var newWord = result.keywords[i].word
+                    var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1)
+                    fireset.push(capital)
+                    $("#word").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
+                    allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
+                }
 
 
+<<<<<<< Updated upstream
     // Save the new price in Firebase
     database.ref().push({
       allScores: allScores
@@ -139,6 +185,89 @@ for(var i=0; i < result.keywords.length; i++) {
             }
           }
         });     
+=======
+                //these arrays will contain the data for the bar graph
+                var arrayWords = []; //contains the words
+                var arrayScore = []; //contains the score
+                var arrayColor = []; //array for if red or green
+                var arrayBlack = []; //however many black color sit needs
+
+                //for loop to add data into the arrays
+                for (var i=0; i < result.keywords.length; i++){
+                    arrayWords.push(result.keywords[i].word);
+                    arrayScore.push(result.keywords[i].score);
+                    arrayColor.push(getColor(result.keywords[i].score));
+                    arrayBlack.push('black');
+                }
+
+
+
+
+                //////////////CHART///////////////
+
+                //this function determines whether the bar for whatever word will be green or red on graph
+                function getColor(number){
+                    if (number > 0){
+                        return 'rgba(75, 192, 192, 0.2)'; //green
+                    }
+                    else {
+                        return 'rgba(255, 99, 132, 0.2)' //red
+                    }
+                }
+
+                //start of chart info
+                var ctx = document.getElementById("myChart");
+                var myChart = new Chart(ctx, {
+                    type: 'horizontalBar',
+                    data: {
+                        //words here
+                        labels: arrayWords,
+
+                        datasets: [{
+                            label: 'Positive Sentiment',
+                            //scores below
+                            display: false,
+                            data: arrayScore, //add JSON num results here
+                            backgroundColor: arrayColor,
+                            borderColor: arrayBlack,
+                            borderWidth: 2
+                            },
+
+                            {
+                            //this is for the Negative part of the legend
+                            label: 'Negative Sentiment',
+                            data: 0,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'black',
+                            borderWidth: 2
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'WORD'
+                                },
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }],
+                            xAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'SENTIMENT SCORE'
+                                },
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+>>>>>>> Stashed changes
             },
             error: function (err) {
                 alert(err);
@@ -147,8 +276,7 @@ for(var i=0; i < result.keywords.length; i++) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "UZcvZdpyc2mshN5Bh0clQLUDQ5PFp1IMTstjsn24rmcVxEWTqG"); // Enter here your Mashape key
             }
         });
-
-    });
+});
 
 var avg = 0;
 
@@ -226,7 +354,7 @@ var langs =
  ['Lingua latīna',   ['la']]];
 
 for (var i = 0; i < langs.length; i++) {
-  select_language.options[i] = new Option(langs[i][0], i);
+    select_language.options[i] = new Option(langs[i][0], i);
 }
 
 select_language.selectedIndex = 6;
@@ -234,16 +362,19 @@ updateCountry();
 select_dialect.selectedIndex = 6;
 
 showInfo('info_start');
+
 function updateCountry() {
-  for (var i = select_dialect.options.length - 1; i >= 0; i--) {
-    select_dialect.remove(i);
-  }
-  var list = langs[select_language.selectedIndex];
-  for (var i = 1; i < list.length; i++) {
-    select_dialect.options.add(new Option(list[i][1], list[i][0]));
-  }
-  select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
+    for (var i = select_dialect.options.length - 1; i >= 0; i--) {
+        select_dialect.remove(i);
+    }
+    
+    var list = langs[select_language.selectedIndex];
+    for (var i = 1; i < list.length; i++) {
+        select_dialect.options.add(new Option(list[i][1], list[i][0]));
+    }
+    select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
+
 var create_email = false;
 var final_transcript = '';
 var recognizing = false;
@@ -251,104 +382,105 @@ var ignore_onend;
 var start_timestamp;
 
 if (!('webkitSpeechRecognition' in window)) {
-  upgrade();
-} else {
-  start_button.style.display = 'inline-block';
-  var recognition = new webkitSpeechRecognition();
-  recognition.continuous = true;
-  recognition.interimResults = true;
-  recognition.onstart = function() {
-    recognizing = true;
-    showInfo('info_speak_now');
-    start_img.src = 'mic-animate.gif';
-  };
+    upgrade();
+} 
+else {
+    start_button.style.display = 'inline-block';
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.onstart = function() {
+        recognizing = true;
+        showInfo('info_speak_now');
+        start_img.src = 'mic-animate.gif';
+    };
 
-  recognition.onerror = function(event) {
-    if (event.error == 'no-speech') {
-      start_img.src = 'mic.gif';
-      showInfo('info_no_speech');
-      ignore_onend = true;
-    }
-    if (event.error == 'audio-capture') {
-      start_img.src = 'mic.gif';
-      showInfo('info_no_microphone');
-      ignore_onend = true;
-    }
-    if (event.error == 'not-allowed') {
-      if (event.timeStamp - start_timestamp < 100) {
-        showInfo('info_blocked');
-      } else {
-        showInfo('info_denied');
-      }
-      ignore_onend = true;
-    }
-  };
+    recognition.onerror = function(event) {
+        if (event.error == 'no-speech') {
+            start_img.src = 'mic.gif';
+            showInfo('info_no_speech');
+            ignore_onend = true;
+        }
+        if (event.error == 'audio-capture') {
+            start_img.src = 'mic.gif';
+            showInfo('info_no_microphone');
+            ignore_onend = true;
+        }
+        if (event.error == 'not-allowed') {
+            if (event.timeStamp - start_timestamp < 100) {
+                showInfo('info_blocked');
+            } else {
+                showInfo('info_denied');
+            }
+            ignore_onend = true;
+        }
+    };
 
-  recognition.onend = function() {
-    recognizing = false;
-    if (ignore_onend) {
-      return;
-    }
-    start_img.src = 'mic.gif';
-    if (!final_transcript) {
-      showInfo('info_start');
-      return;
-    }
-    showInfo('');
-    if (window.getSelection) {
-      window.getSelection().removeAllRanges();
-      var range = document.createRange();
-      range.selectNode(document.getElementById('final_span'));
-      window.getSelection().addRange(range);
-    }
-    if (create_email) {
-      create_email = false;
-      createEmail();
-    }
-  };
+    recognition.onend = function() {
+        recognizing = false;
+        if (ignore_onend) {
+            return;
+        }
+        start_img.src = 'mic.gif';
+        if (!final_transcript) {
+            showInfo('info_start');
+            return;
+        }
+        showInfo('');
+        if (window.getSelection) {
+            window.getSelection().removeAllRanges();
+            var range = document.createRange();
+            range.selectNode(document.getElementById('final_span'));
+            window.getSelection().addRange(range);
+        }
+        if (create_email) {
+            create_email = false;
+            createEmail();
+        }
+    };
 
-  recognition.onresult = function(event) {
-    var interim_transcript = '';
-    for (var i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
-      } else {
-        interim_transcript += event.results[i][0].transcript;
-      }
-    }
-    final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
-    // if (final_transcript || interim_transcript) {
-    //   showButtons('inline-block');
-    // }
-  };
+    recognition.onresult = function(event) {
+        var interim_transcript = '';
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                final_transcript += event.results[i][0].transcript;
+            } else {
+                interim_transcript += event.results[i][0].transcript;
+            }
+        }
+        final_transcript = capitalize(final_transcript);
+        final_span.innerHTML = linebreak(final_transcript);
+        interim_span.innerHTML = linebreak(interim_transcript);
+        // if (final_transcript || interim_transcript) {
+        //   showButtons('inline-block');
+        // }
+    };
 }
 
 function upgrade() {
-  start_button.style.visibility = 'hidden';
-  showInfo('info_upgrade');
+    start_button.style.visibility = 'hidden';
+    showInfo('info_upgrade');
 }
 
 var two_line = /\n\n/g;
 var one_line = /\n/g;
 function linebreak(s) {
-  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+    return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
 }
 
 var first_char = /\S/;
 function capitalize(s) {
-  return s.replace(first_char, function(m) { return m.toUpperCase(); });
+    return s.replace(first_char, function(m) { return m.toUpperCase(); });
 }
 
 function createEmail() {
-  var n = final_transcript.indexOf('\n');
-  if (n < 0 || n >= 80) {
-    n = 40 + final_transcript.substring(40).indexOf(' ');
-  }
-  var subject = encodeURI(final_transcript.substring(0, n));
-  var body = encodeURI(final_transcript.substring(n + 1));
-  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+    var n = final_transcript.indexOf('\n');
+    if (n < 0 || n >= 80) {
+        n = 40 + final_transcript.substring(40).indexOf(' ');
+    }
+    var subject = encodeURI(final_transcript.substring(0, n));
+    var body = encodeURI(final_transcript.substring(n + 1));
+    window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
 // function copyButton() {
 //   if (recognizing) {
@@ -373,33 +505,33 @@ function createEmail() {
 // }
 
 function startButton(event) {
-  if (recognizing) {
-    recognition.stop();
-    return;
-  }
-  final_transcript = '';
-  recognition.lang = select_dialect.value;
-  recognition.start();
-  ignore_onend = false;
-  final_span.innerHTML = '';
-  interim_span.innerHTML = '';
-  start_img.src = 'mic-slash.gif';
-  showInfo('info_allow');
-  // showButtons('none');
-  start_timestamp = event.timeStamp;
+    if (recognizing) {
+        recognition.stop();
+        return;
+    }
+    final_transcript = '';
+    recognition.lang = select_dialect.value;
+    recognition.start();
+    ignore_onend = false;
+    final_span.innerHTML = '';
+    interim_span.innerHTML = '';
+    start_img.src = 'mic-slash.gif';
+    showInfo('info_allow');
+    // showButtons('none');
+    start_timestamp = event.timeStamp;
 }
 
 function showInfo(s) {
-  if (s) {
-    for (var child = info.firstChild; child; child = child.nextSibling) {
-      if (child.style) {
-        child.style.display = child.id == s ? 'inline' : 'none';
-      }
+    if (s) {
+        for (var child = info.firstChild; child; child = child.nextSibling) {
+            if (child.style) {
+                child.style.display = child.id == s ? 'inline' : 'none';
+            }
+        }
+        info.style.visibility = 'visible';
+    } else {
+        info.style.visibility = 'hidden';
     }
-    info.style.visibility = 'visible';
-  } else {
-    info.style.visibility = 'hidden';
-  }
 }
 // var current_style;
 // function showButtons(style) {
