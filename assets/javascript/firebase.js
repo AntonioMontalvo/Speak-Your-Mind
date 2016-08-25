@@ -40,7 +40,7 @@ firebase.auth().signInAnonymously().catch(function(error) {
 
 dataRef.ref().on('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot){
-    var key = childSnapshot.key();
+    var total = childSnapshot.avg();
     var childData = childSnapshot.val();
   });
   console.log(childData);
