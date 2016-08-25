@@ -51,7 +51,9 @@ query.once("value")
       // key will be "ada" the first time and "alan" the second time
       var key = childSnapshot.key;
       // childData will be the actual contents of the child
+      console.log(key);
       var childData = childSnapshot.val();
+      console.log(childData);
   });
 });
 
