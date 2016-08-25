@@ -52,8 +52,8 @@ query.once("value")
       var key = childSnapshot.key;
       // childData will be the actual contents of the child
       console.log('this is the key' + key);
-      var childData = childSnapshot.val();
-      console.log('this is chilsdata' + childData);
+      var childData = childSnapshot.avg.val();
+      console.log('this is childata' + childData);
   });
 });
 
