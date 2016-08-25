@@ -52,13 +52,10 @@ query.once("value")
       var key = childSnapshot.key;
       // childData will be the actual contents of the child
       var childData = childSnapshot.val();
+      usersAvg.push(childData.avg);
       console.log(childData.avg);
   });
 });
 
 
-//     for (var i = 0; i < .length; i++){
-//     avg += allScores[i]/allScores.length;
-// }
-// console.log ('The mean is: ' + avg);
 

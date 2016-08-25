@@ -3,7 +3,14 @@
 var allScores = [];//stored values from words
 var textString;
 var avg;
-var usersAvg;
+var usersAvg = [];
+var totalMeam = 0;
+
+    for (var i = 0; i < usersAvg.length; i++){
+    totalMean += usersAvg[i]/usersAvg.length;
+  }
+console.log ('The mean is: ' + totalMean);
+
 
 $('#searchParameters').hide();
 $('#searchInput').hide();
