@@ -7,7 +7,7 @@
 <!--  Reset -->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 <!--  Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
@@ -156,8 +156,8 @@
           <div class="panel-body">
           </div>
 
-        </div>                    
-      </div>  
+        </div>
+      </div>
     </div>
 <!-- CHART -->
     <div id="chart" class="row">
@@ -167,8 +167,20 @@
         </div>
       <div class="col-md-2"></div>
     </div>
-  
+  <!--modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2 class="modal-title text-center" id="myModalLabel"></h2>
+          </div>
+          <div class="modal-body" id="face">
 
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -184,7 +196,7 @@
 <!-- Chart.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
 
-  
+
 
 </body>
 </html>
