@@ -5,6 +5,12 @@ var textString;
 var avg;
 var usersAvg = [];
 
+$(".text_process_button").on('click', function(){
+    for (var i = 0; i < usersAvg.length; i++){
+    var totalMean = usersAvg[i]/usersAvg.length;
+  }
+  console.log ('The mean is: ' + totalMean);
+});
 
 
 
@@ -14,10 +20,7 @@ $('#searchParameters').hide();
 $('#searchInput').hide();
  $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
-  // for (var i = 0; i < usersAvg.length; i++){
-  //   var totalMean = usersAvg[i]/usersAvg.length;
-  // }
-  // console.log ('The mean is: ' + totalMean);
+
 
 
     $('#searchInput').val(final_span.textContent); //get text from textArea

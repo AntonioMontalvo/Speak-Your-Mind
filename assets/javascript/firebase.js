@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(uid)
 
     $(".text_process_button").on('click', function() {
-      
+
         dataRef.ref().on('value', function(snapshot) {
             dataRef.ref('users/'+uid).set({
               avg: avg,
@@ -48,14 +48,12 @@ var query = firebase.database().ref("users").orderByKey();
 query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
-      // key will be "ada" the first time and "alan" the second time
       var key = childSnapshot.key;
-      // childData will be the actual contents of the child
       var childData = childSnapshot.val();
       usersAvg.push(childData.avg);
       console.log(childData.avg);
   });
-});
+});//iterates over database an pushes the average of every user to array usersAvg
 
 
 
