@@ -18,6 +18,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(uid)
 
     $(".text_process_button").on('click', function() {
+       for (var i = 0; i < usersAvg.length; i++){
+    var totalMean = usersAvg[i]/usersAvg.length;
+  }
+  console.log ('The mean is: ' + totalMean);
 
         dataRef.ref().on('value', function(snapshot) {
             dataRef.ref('users/'+uid).set({
