@@ -188,9 +188,9 @@ for(var i=0; i < result.keywords.length; i++) {
         }).done(function(response) {
           $("#myModal").modal({ keyboard: false })
           $("#myModal").modal('show')
-          $("#face").remove();
-        });
 
+        });
+$("#face").remove();
     });
 
 
