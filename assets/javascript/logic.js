@@ -3,6 +3,7 @@
 var allScores = [];//stored values from words
 var textString;
 var avg;
+var usersAvg;
 
 $('#searchParameters').hide();
 $('#searchInput').hide();
@@ -152,10 +153,7 @@ for(var i=0; i < result.keywords.length; i++) {
     });
 
 
-// for (var i = 0; i < .length; i++){
-//     avg += allScores[i]/allScores.length;
-// }
-// console.log ('The mean is: ' + avg);
+
 
 
 //////////////Google Cloud Speech API ///////////////

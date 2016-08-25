@@ -39,9 +39,18 @@ firebase.auth().signInAnonymously().catch(function(error) {
 
 
 dataRef.ref().on('value', function(snapshot) {
+  snapshot.forEach(function(childSnapshot){
+    var key = childSnapshot.key();
+    var childData = childSnapshot.val();
+  });
+  console.log(childData);
   var a = snapshot.numChildren();
-  dataRef.ref('users/')
-
+  dataRef.ref('users/');
 });
 
+
+//     for (var i = 0; i < .length; i++){
+//     avg += allScores[i]/allScores.length;
+// }
+// console.log ('The mean is: ' + avg);
 
