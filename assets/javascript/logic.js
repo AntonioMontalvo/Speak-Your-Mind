@@ -64,7 +64,7 @@ $('#searchInput').hide();
             console.log("HELLO???");
             console.log(avg);
             $("#face").remove();
-            $("#myModalLabel").remove();
+
             if(result.score > .90) {
               $("#face").append("<img src='assets/img/amazing.png' style='width: 500px'/>");
               $("#myModalLabel").html("Your Life Is Amazing. Well done.");
