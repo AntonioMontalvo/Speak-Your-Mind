@@ -7,7 +7,7 @@ var usersAvg = [];
 var totalMean;
 
     for (var i = 0; i < usersAvg.length; i++){
-    totalMean += usersAvg[i]/usersAvg.length;
+    totalMean = usersAvg[i]/usersAvg.length;
   }
 console.log ('The mean is: ' + totalMean);
 
