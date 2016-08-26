@@ -21,13 +21,13 @@ var dataRef = firebase.database();
 //   dataRef.ref('users/');
 // });
 //
-// var query = firebase.database().ref("users").orderByKey();
-// query.once("value")
-//   .then(function(snapshot) {
-//     snapshot.forEach(function(childSnapshot) {
-//       var key = childSnapshot.key;
-//       var childData = childSnapshot.val();
-//       usersAvg.push(childData.avg);
-//       console.log(childData.avg);
-//   });
-// });//iterates over database an pushes the average of every user to array usersAvg
+var query = firebase.database().ref("users").orderByKey();
+query.once("value")
+  .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      var childData = childSnapshot.val();
+      usersAvg.push(childData.avg);
+      console.log(childData.avg);
+  });
+});//iterates over database an pushes the average of every user to array usersAvg
