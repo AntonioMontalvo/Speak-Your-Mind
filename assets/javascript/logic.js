@@ -6,12 +6,12 @@ var textString;
 var avg;
 var usersAvg = [];
 
-$("#submit").on('click', function(){
-function getSum(a, b) {
-    return a + b;
-}
-console.log('The mean is: ' + usersAvg.reduce(getSum)/usersAvg.length);
-});
+// $("#submit").on('click', function(){
+// function getSum(a, b) {
+//     return a + b;
+// }
+// console.log('The mean is: ' + usersAvg.reduce(getSum)/usersAvg.length);
+// });
 
 
 
