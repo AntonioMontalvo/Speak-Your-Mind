@@ -5,16 +5,20 @@ var allScores = [];//stored values from words
 var textString;
 var avg;
 var usersAvg = [];
+var pos = 'positive';
+var neg = 'negative'
+
 
 $("#submit").on('click', function(){
 function getSum(a, b) {
     return a + b;
 }
-$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%");
+if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) > 0){
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + pos);
+}else{
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + neg);
+}
 });
-
-
-
 
 
 $('#select_language').hide(); //hide the language selecter but does not delete it
