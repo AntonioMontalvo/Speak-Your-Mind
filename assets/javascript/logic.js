@@ -6,12 +6,16 @@ var textString;
 var avg;
 var usersAvg = [];
 
-$(".text_process_button").on('click', function(){
-    for (var i = 0; i < usersAvg.length; i++){
-        var totalMean = usersAvg[i]/usersAvg.length;
-    }
-    console.log ('The mean is: ' + totalMean);
+$("#submit").on('click', function(){
+function getSum(a, b) {
+    return a + b;
+}
+console.log('The mean is: ' + usersAvg.reduce(getSum)/usersAvg.length);
 });
+
+
+
+
 
 $('#select_language').hide(); //hide the language selecter but does not delete it
 $('#select_dialect').hide(); //hide the languge selecter but does not delete it
@@ -69,7 +73,6 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
 
             };
 
-            console.log("HELLO???");
             console.log(avg);
 
             // if(result.score > .50) {
