@@ -1,317 +1,169 @@
+<!-- sentiment analysis test -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" lang="en">
+    <meta charset="utf-8" lang="en">
+    <title>Speak Your Mind</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  Reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!--  Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-	<title>Speak Your Mind</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--  Reset -->
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<!--  Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
-	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-<<<<<<< Updated upstream
-<div class="container">
-
-  <!-- Jumbotron  -->
-  <div class="jumbotron">
-    <h1>Speak Your Mind</h1>
-    <h4>Sentiment Analysis using Voice Recognition and NLP APIs</h4>
-  </div>
-
-
-<div id="info">
-  <p id="info_start">Click on the microphone icon and begin speaking.</p>
-  <p id="info_speak_now">Speak now.</p>
-  <p id="info_no_speech">No speech was detected. You may need to adjust your
-    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-      microphone settings</a>.</p>
-  <p id="info_no_microphone" style="display:none">
-    No microphone was found. Ensure that a microphone is installed and that
-    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-    microphone settings</a> are configured correctly.</p>
-  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
-  <p id="info_denied">Permission to use microphone was denied.</p>
-  <p id="info_blocked">Permission to use microphone is blocked. To change,
-    go to chrome://settings/contentExceptions#media-stream</p>
-  <p id="info_upgrade">Web Speech API is not supported by this browser.
-     Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-     version 25 or later.</p>
-</div>
-<div class="right">
-  <button id="start_button" onclick="startButton(event)">
-    <img id="start_img" src="mic.gif" alt="Start"></button>
-</div>
-<div id="results">
-  <span id="final_span" class="final"></span>
-  <span id="interim_span" class="interim"></span>
-  <p>
-</div>
-<div class="center">
-  <div class="sidebyside" style="text-align:right">
-    <button id="copy_button" class="button" onclick="copyButton()">
-      Copy and Paste</button>
-    <div id="copy_info" class="info">
-      Press Control-C to copy text.<br>(Command-C on Mac.)
-    </div>
-  </div>
-  <div class="sidebyside">
-    <button id="email_button" class="button" onclick="emailButton()">
-      Create Email</button>
-    <div id="email_info" class="info">
-      Text sent to default email application.<br>
-      (See chrome://settings/handlers to change.)
-    </div>
-  </div>
-  <p>
-  <div id="div_language">
-    <select id="select_language" onchange="updateCountry()"></select>
-    &nbsp;&nbsp;
-    <select id="select_dialect"></select>
-  </div>
-</div>
-
-
-
-
-  <div class="row">
-
-
-
-    </div>
-
-    <!-- Search Parameters Panel  -->
-    <div id="searchParameters" class="col-lg-12">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Search Parameter</h3>
-          </div>
-
-      </div>
-    </div>
-
-
-    <div class="col-lg-12 text-center">
-      <textarea id="searchInput"></textarea><button type="button" class="text_process_button btn btn-default btn-lg">Get Sentiment Scores</button><br>
-    </div>
-
-
-
-  <div class="row">
-    <!-- Results Panel -->
-    <div class="col-lg-12">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Sentiment Analysis Results</h3>
-          </div>
-          <div class="panel-body" id="sentimentScorePanel">
-
-
-          </div>
-        </div>
-    </div>
-  </div>
-
-
-<!-- We use an Bootstrap animated striped progress bar  -->
-<div class="progress">
-  <div id="bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-    <span class="sr-only">80% Complete (danger)</span>
-  </div>
-</div>
-
-    <div class="row">
-    <!-- Results Panel -->
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Top Words Analyzed</h3>
-          </div>
-
-          <div class="panel-body">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th><h3>Word</h3></th>
-                  <th><h3>Score</h3></th>
-                </tr>
-
-              </thead>
-              <tbody id="word">
-
-              </tbody>
-
-            </table>
-          </div>
-
-        </div>
-
-          <div class="panel-body" id="word">
-          </div>
-
-        </div>                    
-      </div>  
-    </div>
-<!-- CHART -->
-    <div id="chart" class="row">
-      <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <canvas id="myChart"></canvas>
-        </div>
-      <div class="col-md-2"></div>
-    </div>
-  </div>
-=======
-	<!-- Firebase -->
-	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 </head>
 
+
 <body>
->>>>>>> Stashed changes
+    <div class="container">
 
-	<div class="container">
+        <div class="row">
+            <div class="col-lg-12 title">
+                <h1 class="main-title text-center">Speak Your Mind</h1>
+                <h2 class="sub-title text-center">Analyze the positive and negative sentiments of your words.</h4>
+            </div>
+        </div>
 
-		<!-- Jumbotron  -->
-		<div class="jumbotron">
-			<h1>Speak Your Mind</h1>
-			<h4>Sentiment Analysis using Voice Recognition and NLP APIs</h4>
-		</div>
+        <div class="row">
+            <div id="info">
+                <p id="info_start">Click on the microphone icon and begin speaking.</p>
+                <p id="info_speak_now">Speak about both positive and negative things in your life. Click the mic icon again to stop.</p>
+                <p id="info_no_speech">No speech was detected. You may need to adjust your
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                  microphone settings</a>.</p>
+                <p id="info_no_microphone" style="display:none">
+                No microphone was found. Ensure that a microphone is installed and that
+                <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                microphone settings</a> are configured correctly.</p>
+                <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+                <p id="info_denied">Permission to use microphone was denied.</p>
+                <p id="info_blocked">Permission to use microphone is blocked. To change,
+                go to chrome://settings/contentExceptions#media-stream</p>
+                <p id="info_upgrade">Web Speech API is not supported by this browser.
+                 Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+                 version 25 or later.</p>
+            </div>
 
-		<div class="row speechToText">
-			<div id="info">
-				<p id="info_start">Click on the microphone icon and begin speaking.</p>
-				<p id="info_speak_now">Speak now.</p>
-				<p id="info_no_speech">No speech was detected. You may need to adjust your
-				<a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-				  microphone settings</a>.</p>
-				<p id="info_no_microphone" style="display:none">
-				No microphone was found. Ensure that a microphone is installed and that
-				<a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-				microphone settings</a> are configured correctly.</p>
-				<p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
-				<p id="info_denied">Permission to use microphone was denied.</p>
-				<p id="info_blocked">Permission to use microphone is blocked. To change,
-				go to chrome://settings/contentExceptions#media-stream</p>
-				<p id="info_upgrade">Web Speech API is not supported by this browser.
-				 Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-				 version 25 or later.</p>
-			</div>
+            <div class="center">
+                <button id="start_button" onclick="startButton(event)">
+                <img id="start_img" src="mic.gif" alt="Start"></button>
+            </div>
 
-			<div class="right">
-	  			<button id="start_button" onclick="startButton(event)">
-	    		<img id="start_img" src="mic.gif" alt="Start"></button>
-			</div>
+            <div id="results" class="center-block">
+                <span id="final_span" class="final"></span>
+                <span id="interim_span" class="interim"></span>
+            </div>
+            
+            <!-- <div class="center"> -->
+    <!--   <div class="sidebyside" style="text-align:right">
+        <button id="copy_button" class="button" onclick="copyButton()">
+          Copy and Paste</button>
+        <div id="copy_info" class="info">
+          Press Control-C to copy text.<br>(Command-C on Mac.)
+        </div>
+      </div> -->
+    <!--   <div class="sidebyside">
+        <button id="email_button" class="button" onclick="emailButton()">
+          Create Email</button>
+        <div id="email_info" class="info">
+          Text sent to default email application.<br>
+          (See chrome://settings/handlers to change.)
+        </div>
+      </div> -->
+            <div class="center">
+                <div id="div_language">
+                    <select id="select_language" onchange="updateCountry()"></select>
+                    &nbsp;&nbsp;
+                    <select id="select_dialect"></select>
+                </div>
+            </div>
+        </div>
 
-			<div id="results">
-	  			<span id="final_span" class="final"></span>
-	  			<span id="interim_span" class="interim"></span>
-	  			<p>
-			</div>
-
-			<div class="center">
-	  			<div class="sidebyside" style="text-align:right">
-	    			<button id="copy_button" class="button" onclick="copyButton()">Copy and Paste</button>
-	    				<div id="copy_info" class="info">Press Control-C to copy text.<br>(Command-C on Mac.)
-	    				</div>
-	  			</div>
-	  		</div>
-
-	  		<div class="sidebyside">
-	    		<button id="email_button" class="button" onclick="emailButton()">Create Email</button>
-	   				<div id="email_info" class="info">Text sent to default email application.
-	   					<br>(See chrome://settings/handlers to change.)
-	    			</div>
-	  		</div>
-	  		<p>
-	  		
-	  		<div id="div_language">
-	    		<select id="select_language" onchange="updateCountry()"></select>
-	    		&nbsp;&nbsp;
-	    		<select id="select_dialect"></select>
-	  		</div>
-	  	</div>
-
-  		<div class="row">
-			<!-- Search Parameters Panel  -->
-			<div id="searchParameters" class="col-lg-12">
-				<div class="panel panel-default">
-			    	<div class="panel-heading">
-				        <h3 class="panel-title">Search Parameter</h3>
-			      	</div>
-			  	</div>
-			</div>
-
-			<div class="col-lg-12 text-center">
-				<textarea id="searchInput"></textarea><button type="button" class="text_process_button btn btn-default btn-lg">Get Sentiment Scores</button><br>
-			</div>
-    	</div>
-
-	  	<div class="row">
-	    	<!-- Results Panel -->
-	    	<div class="col-lg-12">
-	      		<div class="panel panel-default">
-	          		<div class="panel-heading">
-	            		<h3 class="panel-title">Sentiment Analysis Results</h3>
-	          		</div>
-	          	
-	          		<div class="panel-body" id="sentimentScorePanel">
-	          		</div>
-	        	</div>
-	    	</div>
-	  	</div>
+        <div class="col-lg-12">
+            <textarea id="searchInput"></textarea><button type="button" class="text_process_button btn btn-default btn-lg center-block" id="submit">Submit</button><br>
+        </div>
+    </div>
+ 
 
 
-		<!-- We use an Bootstrap animated striped progress bar  -->
-		<div class="progress">
-			<div id="bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-		    	<span class="sr-only">80% Complete (danger)</span>
-		  	</div>
-		</div>
+    <!--  We use an Bootstrap animated striped progress bar  -->
+  
+      <!--modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
 
-    	<div class="row">
-    		<!-- Results Panel -->
-      		<div class="col-lg-12">
-        		<div class="panel panel-default">
-          			<div class="panel-heading">
-            			<h3 class="panel-title">Top Words Analyzed</h3>
-          			</div>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2 class="modal-title text-center" id="myModalLabel">Results</h2>
+                    </div>
+                    
+                    <div class="modal-body" id="face">
+                        
+                        <div class="col-lg-12">
+                            <div class="sentimentScorePanel center-block">
+                            <!-- <h3>Your Overall Sentiment: <span id="sentiment"></span></h3> -->
+                            <h3 class="text-center">Overall, your Sentiment is <span id="sentscore"></span></h3>
+                            </div>
+                        </div>
 
-          			<div class="panel-body">
-            			<table class="table table-bordered">
-              				<thead>
-				                <tr>
-				                	<th><h3>Word</h3></th>
-				                	<th><h3>Score</h3></th>
-				                </tr>
-              				</thead>
-              				
-              				<tbody>
-              				</tbody>
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="progress">
+                                <div id="bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                    <span class="sr-only">80% Complete (danger)</span>
+                                </div>
+                            </div>
+                        </div>
 
-            			</table>
-         			 </div>
-        		</div>
-        	</div>                    
-      	</div> 
+                        
 
+                        <!-- CHART -->
+                        <div id="chart" class="row">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div> 
 
-		<!-- CHART -->
-	    <div id="chart" class="row">
-	    	<div class="col-lg-8 col-lg-offset-2">
-	    		<canvas id="myChart"></canvas>
-	    	</div>
-	    </div>
-	</div>
+                        <div class="row">
+                            <!-- Results Panel -->
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <table class="table table-bordered keywords">
+                                    <thead>
+                                        <tr>
+                                            <th>Keywords</th>
+                                            <th>Sentiment Score</th>
+                                        </tr>
+                                    </thead>
 
-</div>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <h3 class="text-center">The Average Sentiment Score Is: <span id="average"></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <!-- jQuery JS -->
-<script src="https://code.jquery.com/jquery.js"></script>
-
+<script src="assets/javascript/jquery.min.js"></script>
+<script src="assets/javascript/bootstrap.min.js"></script>
 <!-- Logic.js -->
 <script src="assets/javascript/logic.js"></script>
+
 
 <script src="assets/javascript/firebase.js"></script>
 
@@ -319,7 +171,7 @@
 <!-- Chart.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
 
-  
+
 
 </body>
 </html>
