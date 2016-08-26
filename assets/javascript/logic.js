@@ -202,7 +202,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
                     var uid = user.uid;
                     console.log(uid)
                     dataRef.ref().on('value', function(snapshot) {
-                        dataRef.ref('users/'+uid).push({
+                        dataRef.ref('users/'+uid).set({
                             avg: avg,
                             textString: textString,
                         });
