@@ -13,10 +13,10 @@ $("#submit").on('click', function(){
 function getSum(a, b) {
     return a + b;
 }
-if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) > 0){
-$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) + "%" + pos);
+if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) > 0){
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + pos);
 }else{
-$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) + "%" + neg);
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + neg);
 }
 });
 
@@ -49,7 +49,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             console.log(result);
             console.log(result.type);
             console.log(result.score);
-            avg = result.score;
+            avg = Math.round(Math.abs(result.score * 100));
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
