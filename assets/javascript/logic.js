@@ -83,7 +83,7 @@ $('#searchInput').hide();
             } else if (result.score > -.30) {
               $("#face").html("<img src='assets/img/unamused.png' style='width: 500px'/>")
               $("#myModalLabel").html("How Did It Come To This???");
-            } else if (result.score > .40) {
+            } else if (result.score > -.40) {
               $("#face").html("<img src='assets/img/sad.jpg' style='width: 500px'/>")
               $("#myModalLabel").html("Your Life Is Garbage! Give Up Already!");
             } else {
