@@ -7,7 +7,7 @@ var usersAvg = [];
 
 $(".text_process_button").on('click', function(){
     for (var i = 0; i < usersAvg.length; i++){
-    var totalMean = parseInt(usersAvg[i]/usersAvg.length);
+    var totalMean = parseFloat(usersAvg[i]/usersAvg.length);
   }
   console.log ('The mean is: ' + totalMean);
 });
