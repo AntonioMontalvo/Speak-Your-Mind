@@ -194,6 +194,23 @@ for(var i=0; i < result.keywords.length; i++) {
         }).done(function(response) {
           $("#myModal").modal({ keyboard: false })
           $("#myModal").modal('show')
+          firebase.auth().signInAnonymously().catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          })
+          firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              var isAnonymous = user.isAnonymous;
+              var uid = user.uid;
+              console.log(uid)
+                  dataRef.ref().on('value', function(snapshot) {
+                      dataRef.ref('users/'+uid).set({
+                        avg: avg,
+                        textString: textString,
+                      });
+                    });
+            }
+          });
         });
 
     });
