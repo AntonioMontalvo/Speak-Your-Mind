@@ -5,11 +5,11 @@ var textString;
 var avg;
 var usersAvg = [];
 
-var sum = userAvg.reduce(add, 0);
-function add(a, b) {
-    return a + b;
-}
-console.log('the sum is ' + sum);
+// var sum = userAvg.reduce(add, 0);
+// function add(a, b) {
+//     return a + b;
+// }
+// console.log('the sum is ' + sum);
 
 $(".text_process_button").on('click', function(){
     for (var i = 0; i < usersAvg.length; i++){
