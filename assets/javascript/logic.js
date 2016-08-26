@@ -10,7 +10,7 @@ $("#submit").on('click', function(){
 function getSum(a, b) {
     return a + b;
 }
-$('#average').append(Math.round(Math.abs(usersAvg.reduce(getSum)/usersAvg.length))*100;
+$('#average').append(Math.round(Math.abs(usersAvg.reduce(getSum)/usersAvg.length))*100);
 });
 
 
