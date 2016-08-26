@@ -13,10 +13,10 @@ $("#submit").on('click', function(){
 function getSum(a, b) {
     return a + b;
 }
-if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) > 0){
-$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + pos);
+if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) > 0){
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) + "%" + pos);
 }else{
-$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000), 4) + "%" + neg);
+$('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length) * 1000)) + "%" + neg);
 }
 });
 
