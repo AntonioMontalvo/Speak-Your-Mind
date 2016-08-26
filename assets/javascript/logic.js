@@ -3,13 +3,13 @@
 var allScores = [];//stored values from words
 var textString;
 var avg;
-var usersAvg = [].reduce(function(previousValue, currentValue, currentIndex, array) {
-  return previousValue + currentValue;
-});;
+var usersAvg = [];
 
 $(".text_process_button").on('click', function(){
     for (var i = 0; i < usersAvg.length; i++){
-    var totalMean = (usersAvg[i]/usersAvg.length);
+    var totalMean = parseFloat(usersAvg[i].reduce(function(previousValue, currentValue, currentIndex, array) {
+  return previousValue + currentValue;
+})/usersAvg.length);
   }
   console.log ('The mean is: ' + totalMean);
 });
