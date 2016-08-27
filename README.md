@@ -28,12 +28,6 @@ Pass it a text string, and it recognizes words that express an emotional state, 
 ## App Architcture
 [speak-your-mind.pdf](https://github.com/AntonioMontalvo/Speak-Your-Mind/files/440459/speak-your-mind.pdf)
 
-
-function awesomeThing() {
-    //...
-    // try not to make it too long otherwise, point to filepaths:line numbers
-    //...
-}
 ## Authors
 - Antonio Montalvo
 - Israel Niezen
