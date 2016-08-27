@@ -25,49 +25,16 @@ Uses computer microphone to accept spoken words in many languages, and returns t
 Sentiment Analysis API from Twinword:
 Pass it a text string, and it recognizes words that express an emotional state, returning a sentiment result (positive, negative or neutral) along with a numerical value that represents the strength of that sentiment, and the specific words that led to that score (also with their respective scores)
 
-
-Prerequisities
-
-What to install and how for local development and testing purposes
-
-- node.js: visit node.js and download...
-- mongodb: npm install -g mongodb
-- mysqldb: brew install mysql
-- jasmine: npm i -g jasmine
-Running the tests
-
-Explain how to run the automated tests for this system (if applicable)
-
-jasmine
-
-jasmine spec/appSpec.js
-Built With
-
-Atom - Sublime Text is pretty cool too I guess
-Balsamiq - Wireframe of choice
-RoboMongo - Because .pretty() everything is tedious
-Walk throughs of code
-
-For Project presentation, you can include snippets of code you found buggy, interesting, or are overall proud of here. Try to limit the quantity and size to quick readable bits.
-
-You can also show where you've used technologies you've learned and applied here.
-
+## App Architcture
 function awesomeThing() {
     //...
     // try not to make it too long otherwise, point to filepaths:line numbers
     //...
 }
-Authors
+## Authors
+- Antonio Montalvo
+- Israel Niezen
+- Drake Smith
+- Andrew Naeve
 
-John Doe - Initial work - John Doe
-See also the list of contributors who participated in this project.
 
-License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-
-Hat tip to anyone who's code was used
-Inspiration
-etc
