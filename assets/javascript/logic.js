@@ -19,7 +19,7 @@ $("#submit").on('click', function(){
     if (Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length)) < 0)){
       $('#average').append(Math.round(Math.abs((usersAvg.reduce(getSum)/usersAvg.length))) + "%" + neg);
     }
-}
+
 });
 
 
