@@ -3,16 +3,16 @@
 Our App allows users to speak to their computer about things important to them and see just how positive, negative, or neutral they feel about their life, or about specific subjects.  We use voice recognition & speech-to-text technology to turn users’ spoken words into text.  Analysing that body of text, using natural language processing, we return the overall sentiment score in a range between positive, neutral, and negative, along with a numerical expression of the strength of that sentiment.
 
 
-Intro Screen
+##Intro Screen
 <img width="400" alt="screen shot 2016-08-26 at 8 11 44 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024888/03126b42-6bcb-11e6-9f5c-662d0cd86d39.png">
 <br>
-Input Screen
+##Input Screen
 <img width="400" margin-bottom="20px" alt="screen shot 2016-08-26 at 8 15 41 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024903/91f7c104-6bcb-11e6-9c44-8fe1c7e6bb8d.png">
 <br>
-Results Screen
+##Results Screen
 <img width="400" alt="screen shot 2016-08-26 at 8 16 28 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024910/d5f8178c-6bcb-11e6-963d-254b7c3eb412.png">
 <br>
-Technologies used
+##Technologies used
 
 You can give a brief listing of the technologies you've learned and applied here
 
