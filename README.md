@@ -5,24 +5,26 @@ Our App allows users to speak to their computer about things important to them a
 
 ##Intro Screen
 <img width="400" alt="screen shot 2016-08-26 at 8 11 44 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024888/03126b42-6bcb-11e6-9f5c-662d0cd86d39.png">
-<br>
+
 ##Input Screen
 <img width="400" margin-bottom="20px" alt="screen shot 2016-08-26 at 8 15 41 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024903/91f7c104-6bcb-11e6-9c44-8fe1c7e6bb8d.png">
-<br>
+
 ##Results Screen
 <img width="400" alt="screen shot 2016-08-26 at 8 16 28 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024910/d5f8178c-6bcb-11e6-963d-254b7c3eb412.png">
-<br>
+
 ##Technologies used
+HTML, CSS, and Bootstrap for simple  responsive UI
+Javascript & JQuery for overall logic as well as DOM & data manipulation
+AJAX to connect to and retrieve APIs
+Chart.js Library for Visual Charts
+Firebase for user authentication & to store user results for each user
+APIs used:
+Voice Recognition API from Google:
+Uses computer microphone to accept spoken words in many languages, and returns text strings of whatever was spoken into mic.
 
-You can give a brief listing of the technologies you've learned and applied here
+Sentiment Analysis API from Twinword:
+Pass it a text string, and it recognizes words that express an emotional state, returning a sentiment result (positive, negative or neutral) along with a numerical value that represents the strength of that sentiment, and the specific words that led to that score (also with their respective scores)
 
-node.js
-Express
-Handblebars
-mongodb
-Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 Prerequisities
 
