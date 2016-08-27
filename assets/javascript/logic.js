@@ -49,7 +49,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             console.log(result);
             console.log(result.type);
             console.log(result.score);
-            avg = Math.round(Math.abs(result.score * 100));
+            avg = result.score * 100;
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
