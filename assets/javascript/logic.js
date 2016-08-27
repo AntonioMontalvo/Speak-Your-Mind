@@ -85,19 +85,19 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
 
             console.log(avg);
 
-            if(result.score > .50) {
-                $("#face").append("<img src='assets/img/amazing.png' class='center-block' style='width: 200px'/>");
-            } else if (result.score > .35){
-                $("#face").append("<img src='assets/img/cool.png' class='center-block' style='width: 200px'/>");
-            } else if (result.score >= 0) {
-                $("#face").append("<img src='assets/img/neutral.png' class='center-block' style='width: 200px'/>")
-            } else if (result.score < -.35) {
-                $("#face").append("<img src='assets/img/unamused.png' class='center-block' style='width: 200px'/>")
-            } else if (result.score < -.50) {
-                $("#face").append("<img src='assets/img/sad.jpg' class='center-block' style='width: 200px'/>")
-            } else {
-                $("#face").append("<img src='assets/img/dead.png' class='center-block' style='width: 200px'/>")
-            }
+            // if(result.score > .50) {
+            //     $("#face").append("<img src='assets/img/amazing.png' class='center-block' style='width: 200px'/>");
+            // } else if (result.score > .35){
+            //     $("#face").append("<img src='assets/img/cool.png' class='center-block' style='width: 200px'/>");
+            // } else if (result.score >= 0) {
+            //     $("#face").append("<img src='assets/img/neutral.png' class='center-block' style='width: 200px'/>")
+            // } else if (result.score < -.35) {
+            //     $("#face").append("<img src='assets/img/unamused.png' class='center-block' style='width: 200px'/>")
+            // } else if (result.score < -.50) {
+            //     $("#face").append("<img src='assets/img/sad.jpg' class='center-block' style='width: 200px'/>")
+            // } else {
+            //     $("#face").append("<img src='assets/img/dead.png' class='center-block' style='width: 200px'/>")
+            // }
 
             var fireset = [];
 
