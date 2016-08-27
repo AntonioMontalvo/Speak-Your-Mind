@@ -3,10 +3,13 @@
 
 
 Intro Screen
-<img width="608" alt="screen shot 2016-08-26 at 8 11 44 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024888/03126b42-6bcb-11e6-9f5c-662d0cd86d39.png">
+<img width="200" alt="screen shot 2016-08-26 at 8 11 44 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024888/03126b42-6bcb-11e6-9f5c-662d0cd86d39.png">
 
 Input Screen
-<img width="641" alt="screen shot 2016-08-26 at 8 15 41 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024903/91f7c104-6bcb-11e6-9c44-8fe1c7e6bb8d.png">
+<img width="200" alt="screen shot 2016-08-26 at 8 15 41 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024903/91f7c104-6bcb-11e6-9c44-8fe1c7e6bb8d.png">
+
+Results Screen
+<img width="200" alt="screen shot 2016-08-26 at 8 16 28 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024910/d5f8178c-6bcb-11e6-963d-254b7c3eb412.png">
 
 Technologies used
 
