@@ -1,67 +1,58 @@
-
 body{
    background-image: url('../img/brushed.png');
    font-family: 'Lato', sans-serif;
 }
 .title {
-  margin-bottom: 70px;
-  margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #submit {
-  background-color: red;
+    background-color: red;
 }
 
 .main-title {
-  font-size: 100px;
+    font-size: 100px;
 }
 .sub-title {
-  font-size: 35px;
-
+    font-size: 35px;
 }
 .text_process_button{
-
-	background-color: #0808b7;
-	color:white;
-	display:block;
+    background-color: #0808b7;
+    color:white;
+    display:block;
 }
 #chart {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 #searchInput{
-
-	width: 100%;
-	height:150px;
+    width: 100%;
+    height:150px;
 }
 
 .panel-default>.panel-heading{
-	background-color: black;
-	color: white;
-
+    background-color: black;
+    color: white;
 }
 
 .jumbotron{
-
-	color: black;
-
+    color: black;
+}
+.infotext {
+    font-size: 16px;
 }
 
-  * {
-    
- 
-  }
-  a:link {
+a:link {
     color:#000;
     text-decoration: none;
-  }
-  a:visited {
+}
+a:visited {
     color:#000;
-  }
-  a:hover {
+}
+a:hover {
     color:#33F;
-  }
-  .button {
+}
+.button {
     background: -webkit-linear-gradient(top,#008dfd 0,#0370ea 100%);
     border: 1px solid #076bd2;
     border-radius: 3px;
@@ -74,56 +65,72 @@ body{
     text-align: center;
     text-shadow: 1px 1px 1px #076bd2;
     letter-spacing: normal;
-  }
-  .center {
+}
+.center {
     padding: 10px;
     text-align: center;
-  }
-  .final {
+}
+.final {
     color: black;
     padding-right: 3px; 
-  }
-  .interim {
+}
+.interim {
     color: gray;
-  }
-  .info {
+}
+.info {
     font-size: 14px;
     text-align: center;
     color: #777;
     display: none;
-  }
-  .right {
+}
+.right {
     float: right;
-  }
-  .sidebyside {
+}
+.sidebyside {
     display: inline-block;
     width: 45%;
     min-height: 40px;
     text-align: left;
     vertical-align: top;
-  }
-  #headline {
+}
+#headline {
     font-size: 40px;
     font-weight: 300;
-  }
-  #info {
+}
+#info {
     font-size: 20px;
     text-align: center;
     color: #777;
     visibility: hidden;
-  }
-  #results {
+}
+#results {
     font-size: 25px;
     font-weight: bold;
-    /*border: 1px solid #ddd;*/
     padding: 15px;
     text-align: left;
-    min-height: 150px;
-    width: 50%;
-  }
-  #start_button {
+    min-height: 50px;
+    width: 65%;
+}
+#start_button {
     border: 0;
     background-color:transparent;
     padding: 0;
-  }
-
+}
+.button-div {
+    margin-top: 20px;
+}
+.headers {
+  font-weight: bold;
+}
+.progress {
+  margin-bottom: 30px;
+}
+#chart {
+  margin-bottom: 40px;
+}
+.avgSent {
+  margin-bottom: 40px;
+}
+.avg-div {
+  margin-bottom: 40px;
+}

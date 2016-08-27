@@ -5,20 +5,27 @@ var allScores = [];//stored values from words
 var textString;
 var avg;
 var usersAvg = [];
-var pos = 'positive';
-var neg = 'negative'
+var pos = 'Positive';
+var neg = 'Negative'
 
 
 $("#submit").on('click', function(){
   function getSum(a, b) {
       return a + b;
   }
+    //average
     if (Math.round((usersAvg.reduce(getSum)/usersAvg.length)) > 0){
-      $('#average').append(Math.round((usersAvg.reduce(getSum)/usersAvg.length)) + "%" + pos);
+      $('#average').append(Math.round((usersAvg.reduce(getSum)/usersAvg.length)));
+      $('#posOrNeg').append(pos);
+       //$(".averageScore > tbody").append("<tr><td class='col-md-1'>" + Math.round((usersAvg.reduce(getSum)/usersAvg.length)) + "</td>" + "<td class='col-md-1'>" + pos + "</td><td class='col-md-1'>" + "# users" + "</td><tr>");
     } 
     if (Math.round((usersAvg.reduce(getSum)/usersAvg.length)) < 0){
-      $('#average').append(Math.round((usersAvg.reduce(getSum)/usersAvg.length)) + "%" + neg);
+      $('#average').append(Math.round((usersAvg.reduce(getSum)/usersAvg.length)));
+      $('#posOrNeg').append(neg);
+       //$(".averageScore > tbody").append("<tr><td class='col-md-1'>" + Math.round((usersAvg.reduce(getSum)/usersAvg.length)) + "</td>" + "<td class='col-md-1'>" + neg + "</td><td class='col-md-1'>" + "# users" + "</td><tr>");
     }
+
+   
 
 });
 
@@ -31,9 +38,6 @@ $('#submit').hide();
 
 
 $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
-
-
-
 
     $('#searchInput').val(final_span.textContent); //get text from textArea
     textString = $("#searchInput").val().trim(); //store text
@@ -55,8 +59,8 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
-            // $('#sentiment').html(result.type);
-            $('#sentscore').html(scorePercent + "%" + " " + result.type + ".");
+            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1))).css("font-weight", "bold");
+            $('#sentscore').html(scorePercent + "%.");
 
             // $("#sentimentScore").html(result.score);
             //The Math.abs() function returns the absolute value of a number
@@ -81,35 +85,35 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
 
             console.log(avg);
 
-            // if(result.score > .50) {
-            //     $("#face").append("<img src='assets/img/amazing.png' style='width: 200px'/>");
-            //     $("#myModalLabel").append("Your Life Is Amazing. Well done.");
-            // } else if (result.score > .40){
-            //     $("#face").append("<img src='assets/img/cool.png' style='width: 200px'/>");
-            //     $("#myModalLabel").append("You Seem To Be Doing Quite Well.");
-            // } else if (result.score >= 0) {
-            //     $("#face").append("<img src='assets/img/neutral.png' style='width: 200px'/>")
-            //     $("#myModalLabel").append("Your Life Could Be Better..");
-            // } else if (result.score < -.30) {
-            //     $("#face").append("<img class='center-block' src='assets/img/unamused.png' style='width: 200px'/>")
-            //     $("#myModalLabel").append("How Did It Come To This???");
-            // } else if (result.score < -.40) {
-            //     $("#face").append("<img src='assets/img/sad.jpg' style='width: 200px'/>")
-            //     $("#myModalLabel").append("Your Life Is Garbage! Give Up Already!");
-            // } else {
-            //     $("#face").append("<img src='assets/img/dead.png' style='width: 200px'/>")
-            //     $("#myModalLabel").append("You Have No Pulse.");
-            // }
+            if(result.score > .50) {
+                $("#face").append("<img src='assets/img/amazing.png' class='center-block' style='width: 200px'/>");
+            } else if (result.score > .35){
+                $("#face").append("<img src='assets/img/cool.png' class='center-block' style='width: 200px'/>");
+            } else if (result.score >= 0) {
+                $("#face").append("<img src='assets/img/neutral.png' class='center-block' style='width: 200px'/>")
+            } else if (result.score < -.35) {
+                $("#face").append("<img src='assets/img/unamused.png' class='center-block' style='width: 200px'/>")
+            } else if (result.score < -.50) {
+                $("#face").append("<img src='assets/img/sad.jpg' class='center-block' style='width: 200px'/>")
+            } else {
+                $("#face").append("<img src='assets/img/dead.png' class='center-block' style='width: 200px'/>")
+            }
 
             var fireset = [];
 
             for(var i=0; i < result.keywords.length; i++) {
-            var newWord = result.keywords[i].word;
-            var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1);
-            fireset.push(capital);
-            // $(".keywords > tbody").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
-            $(".keywords > tbody").append("<tr><td>" + result.keywords[i].word + "</td>" + "<td>" + result.keywords[i].score + "</td><tr>");
-            allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
+                var newWord = result.keywords[i].word;
+                var capital = newWord.charAt(0).toUpperCase() + newWord.slice(1);
+                fireset.push(capital);
+                if (result.keywords[i].score > 0){
+                    // $(".keywords > tbody").append("<tr><td>"+capital+"</td>" + "<td>"+(parseFloat(result.keywords[i].score.toFixed(4)))+"</td></tr>")
+                    $(".positive-keywords > tbody").append("<tr><td>" + result.keywords[i].word + "</td>" + "<td>" + result.keywords[i].score + "</td><tr>");
+                    allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
+                } else {
+
+                    $(".negative-keywords > tbody").append("<tr><td>" + result.keywords[i].word + "</td>" + "<td>" + result.keywords[i].score + "</td><tr>");
+                    allScores.push(parseFloat(result.keywords[i].score.toFixed(4)));
+                }
             }
 
 
@@ -134,10 +138,12 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             //this function determines whether the bar for whatever word will be green or red on graph
             function getColor(number){
                 if (number > 0){
-                    return 'rgba(75, 192, 192, 0.2)'; //green
+                    //return 'rgba(75, 192, 192, 0.2)'; //green
+                    return 'green';
                 }
                 else {
-                    return 'rgba(255, 99, 132, 0.2)' //red
+                    //return 'rgba(255, 99, 132, 0.2)'; //red
+                    return 'red';
                 }
             }
 
@@ -151,9 +157,10 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
                         //this is for the Negative part of the legend
                         label: 'Negative Sentiment',
                         data: 0,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        //backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        backgroundColor: 'red',
                         borderColor: 'black',
-                        borderWidth: 2
+                        borderWidth: 1
                     },
 
                     {
@@ -164,7 +171,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
                         data: arrayScore, //add JSON num results here
                         backgroundColor: arrayColor,
                         borderColor: arrayBlack,
-                        borderWidth: 2                
+                        borderWidth: 1               
                     }]
                 },
 
