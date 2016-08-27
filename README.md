@@ -1,9 +1,9 @@
 # Speak-Your-Mind
 
-Short project description goes here
+
 
 Screenshots
-
+<img width="608" alt="screen shot 2016-08-26 at 8 11 44 pm" src="https://cloud.githubusercontent.com/assets/16453456/18024888/03126b42-6bcb-11e6-9f5c-662d0cd86d39.png">
 Include a one or two screenshots of main UI/UX points of your app and how it solves a problem
 
 Technologies used
