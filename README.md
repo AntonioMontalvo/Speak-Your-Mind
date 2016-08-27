@@ -26,7 +26,7 @@ Sentiment Analysis API from Twinword:
 Pass it a text string, and it recognizes words that express an emotional state, returning a sentiment result (positive, negative or neutral) along with a numerical value that represents the strength of that sentiment, and the specific words that led to that score (also with their respective scores)
 
 ## App Architcture
-![sentiment analysis using nlp](https://cloud.githubusercontent.com/assets/16453456/18025010/e595f340-6bcf-11e6-904e-5dc7f69a1c71.png)
+
 
 function awesomeThing() {
     //...
