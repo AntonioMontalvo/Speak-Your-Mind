@@ -1,13 +1,14 @@
 body{
    
    font-family: 'Raleway', sans-serif;
+   background-image: url('../img/wood.jpg');;
 
 }
 .container {
-    background-color: #F8F5E1;
+    background-color: #F8ECC2;
     margin-top: 5%;
     border-radius: 10px;
-    box-shadow: 20px 20px 20px #888888;
+    box-shadow: 20px 20px 20px black;
 }
 .title {
     margin-top: 30px;
@@ -53,6 +54,7 @@ body{
     font-size: 16px;
     color: black;
 }
+
 .input-box {
     padding-top: 5%;
 }
@@ -126,6 +128,8 @@ a:hover {
     text-align: center;
     color: #777;
     visibility: hidden;
+    padding-bottom: 15px;
+
 }
 #results {
     font-size: 25px;
@@ -140,9 +144,8 @@ a:hover {
     border: 0;
     background-color:transparent;
     padding: 0;
-}
-#start_img {
-    color: black;
+    border: none;
+    outline:none;
 }
 
 .button-div {
