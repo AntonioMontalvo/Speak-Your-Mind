@@ -9,18 +9,7 @@ firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
-
-
-
-
-
-
-// dataRef.ref().on('value', function(snapshot) {
-//
-//   var a = snapshot.numChildren();
-//   dataRef.ref('users/');
-// });
-//
+//iterates over database and pushes the average of every user's score to the array usersAvg
 var query = firebase.database().ref("users").orderByKey();
 query.once("value")
   .then(function(snapshot) {
@@ -30,4 +19,4 @@ query.once("value")
       usersAvg.push(childData.avg);
       console.log(childData.avg);
   });
-});//iterates over database an pushes the average of every user to array usersAvg
+});
