@@ -64,11 +64,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
-            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1)))
-                .css({
-                    "font-weight": "bold",
-                    "color": sentimentColor(result.type)
-                });
+            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1))).css("color", sentimentColor(result.type));
             $('#sentscore').html(scorePercent + "%.");
 
             // $("#sentimentScore").html(result.score);
