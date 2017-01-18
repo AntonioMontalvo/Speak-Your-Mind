@@ -91,7 +91,7 @@
                         <div class="col-lg-12">
                             <div class="sentimentScorePanel center-block">
                                 <!-- <h3>Your Overall Sentiment: <span id="sentiment"></span></h3> -->
-                                <h3 class="text-center">Your overall sentiment is <span id="sentiment" style="color: "></span> with a strength index of <span id="sentscore"></span></h3>
+                                <h3 class="text-center">Your overall sentiment is <span id="sentiment"></span> with a strength index of <span id="sentscore"></span></h3>
                             </div>
                         </div>
 
@@ -102,13 +102,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row avgScore">
-                            <div class="col-lg-8 col-lg-offset-2">
-                                <h3 class="avgSent">Average Sentiment Score (based on total users)<span id="totalUsers"></span></h3>
-                                <h4><span id="posOrNeg"></span> with a strength index of <span id="average"></span>%.</h4>
-                            </div>
-                        </div>    
                     </div>
                     
                     <!-- CHART -->
@@ -133,6 +126,12 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="avgScore">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <h3 class="avgSent">The average sentiment, based on data from <span id="totalUsers"></span> total users, is <span id="posOrNeg"></span> with a strength index of <span id="average"></span>%.</h3>
+                            </div>
+                        </div>       
 
                         <div class="col-lg-5">
                             <table class="table negative-keywords center-block">
