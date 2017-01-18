@@ -1,4 +1,4 @@
-<h1>Speak-Your-Mind</h1>
+`<h1>Speak-Your-Mind</h1>
 
 Our App allows users to speak to their computer about things important to them and see just how positive, negative, or neutral they feel about their life, or about specific subjects.  We use voice recognition & speech-to-text technology to turn users’ spoken words into text.  Analysing that body of text, using natural language processing, we return the overall sentiment score in a range between positive, neutral, and negative, along with a numerical expression of the strength of that sentiment.
 

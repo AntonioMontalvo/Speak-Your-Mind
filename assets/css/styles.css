@@ -1,8 +1,6 @@
-body{
-   
+body {
    font-family: 'Raleway', sans-serif;
    background-image: url('../img/wood.jpg');;
-
 }
 .container {
     background-color: #F8ECC2;
@@ -13,9 +11,7 @@ body{
 .title {
     margin-top: 30px;
     margin-bottom: 50px;
-
 }
-
 #submit {
     background-color: red;
 }
@@ -23,7 +19,6 @@ body{
 .main-title {
     font-size: 100px;
     font-family: 'Lobster', sans-serif;
-    /*margin-top: 10%;*/
 }
 .sub-title {
     font-size: 35px;

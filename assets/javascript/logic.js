@@ -34,6 +34,13 @@ $('#select_dialect').hide(); //hide the dialect, only using English for now
 $('#searchInput').hide();
 $('#submit').hide();
 
+function sentimentColor(text) {
+    if (text == "positive") {
+        return "green";
+    } else {
+        return "red";
+    }
+}
 
 $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
@@ -57,7 +64,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
-            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1))).css("font-weight", "bold");
+            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1))).css("font-weight", "bold").css("color", sentimentColor(result.type));
             $('#sentscore').html(scorePercent + "%.");
 
             // $("#sentimentScore").html(result.score);
@@ -124,11 +131,11 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             function getColor(number){
                 if (number > 0){
                     //return 'rgba(75, 192, 192, 0.2)'; //green
-                    return 'green';
+                    return '#23c641';
                 }
                 else {
                     //return 'rgba(255, 99, 132, 0.2)'; //red
-                    return 'red';
+                    return '#e02121';
                 }
             }
 
