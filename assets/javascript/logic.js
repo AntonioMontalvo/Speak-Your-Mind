@@ -1,7 +1,7 @@
 
 //////////////SENTIMENT API FROM twinword///////////////
 ///////////////////////////////////////////////////////
-var allScores = [];//stored values from words
+var allScores = []; //stored values from words
 var textString;
 var avg;
 var usersAvg = [];
@@ -24,18 +24,23 @@ $("#submit").on('click', function(){
       $('#posOrNeg').append(neg);
        //$(".averageScore > tbody").append("<tr><td class='col-md-1'>" + Math.round((usersAvg.reduce(getSum)/usersAvg.length)) + "</td>" + "<td class='col-md-1'>" + neg + "</td><td class='col-md-1'>" + "# users" + "</td><tr>");
     }
-
-   
-
 });
 
 
-$('#select_language').hide(); //hide the language selecter but does not delete it
-$('#select_dialect').hide(); //hide the languge selecter but does not delete it
-// $('#searchParameters').hide();
+$('#select_language').hide(); //hide the language selecter, only using English for now
+$('#select_dialect').hide(); //hide the dialect, only using English for now
+
+//the search input box and submit are initially hidden until user clicks start, and then finishes speaking
 $('#searchInput').hide();
 $('#submit').hide();
 
+function sentimentColor(word) {
+    if (word == "positive") {
+        return "green";
+    } else {
+        return "red";
+    }
+}
 
 $(".text_process_button").click(function(){//This is the Get Sentiment Scores button
 
@@ -59,7 +64,7 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             //we access Sentiment Analysis Results and write the type and score
             //$("#sentimentScorePanel").html(result.type+" = "+result.score);
             var scorePercent = Math.round(Math.abs(result.score * 100));
-            $('#sentiment').html((result.type).charAt(0).toUpperCase() + (result.type.slice(1))).css("font-weight", "bold");
+            $('#sentiment').html("<h3>" + (result.type).charAt(0).toUpperCase() + (result.type.slice(1)) + "</h3>").css("color", sentimentColor(result.type));
             $('#sentscore').html(scorePercent + "%.");
 
             // $("#sentimentScore").html(result.score);
@@ -85,19 +90,6 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
 
             console.log(avg);
 
-            // if(result.score > .50) {
-            //     $("#face").append("<img src='assets/img/amazing.png' class='center-block' style='width: 200px'/>");
-            // } else if (result.score > .35){
-            //     $("#face").append("<img src='assets/img/cool.png' class='center-block' style='width: 200px'/>");
-            // } else if (result.score >= 0) {
-            //     $("#face").append("<img src='assets/img/neutral.png' class='center-block' style='width: 200px'/>")
-            // } else if (result.score < -.35) {
-            //     $("#face").append("<img src='assets/img/unamused.png' class='center-block' style='width: 200px'/>")
-            // } else if (result.score < -.50) {
-            //     $("#face").append("<img src='assets/img/sad.jpg' class='center-block' style='width: 200px'/>")
-            // } else {
-            //     $("#face").append("<img src='assets/img/dead.png' class='center-block' style='width: 200px'/>")
-            // }
 
             var fireset = [];
 
@@ -139,11 +131,11 @@ $(".text_process_button").click(function(){//This is the Get Sentiment Scores bu
             function getColor(number){
                 if (number > 0){
                     //return 'rgba(75, 192, 192, 0.2)'; //green
-                    return 'green';
+                    return '#23c641';
                 }
                 else {
                     //return 'rgba(255, 99, 132, 0.2)'; //red
-                    return 'red';
+                    return '#e02121';
                 }
             }
 
@@ -234,7 +226,7 @@ $("#myModal").on("hidden.bs.modal modal-lg", function () {
 });
 
 
-//////////////Google Cloud Speech API ///////////////
+//////////////Web Speech API Implementation ///////////////
 /////////////////////////////////////////////////////
 
 var langs =
@@ -327,6 +319,7 @@ var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
+//initialize Web Speech
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
 }   else {
@@ -397,9 +390,6 @@ if (!('webkitSpeechRecognition' in window)) {
         final_transcript = capitalize(final_transcript);
         final_span.innerHTML = linebreak(final_transcript);
         interim_span.innerHTML = linebreak(interim_transcript);
-        // if (final_transcript || interim_transcript) {
-        //   showButtons('inline-block');
-        // }
     };
 }
 
@@ -428,27 +418,6 @@ function createEmail() {
     var body = encodeURI(final_transcript.substring(n + 1));
     window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
-// function copyButton() {
-//   if (recognizing) {
-//     recognizing = false;
-//     recognition.stop();
-//   }
-//   copy_button.style.display = 'none';
-//   copy_info.style.display = 'inline-block';
-//   showInfo('');
-// }
-// function emailButton() {
-//   if (recognizing) {
-//     create_email = true;
-//     recognizing = false;
-//     recognition.stop();
-//   } else {
-//     createEmail();
-//   }
-//   email_button.style.display = 'none';
-//   email_info.style.display = 'inline-block';
-//   showInfo('');
-// }
 
 function startButton(event) {
     if (recognizing) {
@@ -464,7 +433,6 @@ function startButton(event) {
     interim_span.innerHTML = '';
     start_img.src = 'mic-slash.gif';
     showInfo('info_allow');
-    // showButtons('none');
     start_timestamp = event.timeStamp;
 }
 
@@ -480,14 +448,3 @@ function showInfo(s) {
         info.style.visibility = 'hidden';
     }
 }
-// var current_style;
-// function showButtons(style) {
-//   if (style == current_style) {
-//     return;
-//   }
-//   current_style = style;
-//   copy_button.style.display = style;
-//   email_button.style.display = style;
-//   copy_info.style.display = 'none';
-//   email_info.style.display = 'none';
-// }
